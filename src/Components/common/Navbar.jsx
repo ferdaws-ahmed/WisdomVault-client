@@ -17,7 +17,7 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  
+  console.log(user);
   const handleNavigate = (path) => {
     navigate(path);
     setDropdownOpen(false);
@@ -111,6 +111,7 @@ export default function Navbar() {
               className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500 object-cover"
               alt="avatar"
               whileHover={{ scale: 1.1 }}
+              referrerPolicy="no-referrer"
             />
             <AnimatePresence>
               {dropdownOpen && (
@@ -123,7 +124,7 @@ export default function Navbar() {
                     ${theme === "light" ? "bg-white border-gray-200 text-gray-700" : "bg-gray-800 border-gray-700 text-gray-200"}
                   `}
                 >
-                  <p className="font-semibold text-center pb-2 border-b">{user.displayName || user.email || "User"}</p>
+                  <p className="font-semibold text-center pb-2 border-b">{user.name  || "User"}</p>
                   <Button onClick={() => handleNavigate("/dashboard/profile")}>Profile</Button>
                   <Button onClick={() => handleNavigate("/dashboard")}>Dashboard</Button>
                   <Button onClick={logout} className="bg-red-600 hover:bg-red-700">Logout</Button>
@@ -174,7 +175,7 @@ export default function Navbar() {
                 ${theme === "light" ? "bg-white border-gray-200 text-gray-700" : "bg-gray-800 border-gray-700 text-gray-200"}
               `}
             >
-              <p className="font-semibold">{user.displayName || user.email || "User"}</p>
+              <p className="font-semibold">{user.name|| "User"}</p>
               <Button onClick={() => handleNavigate("/dashboard/profile")}>Profile</Button>
               <Button onClick={() => handleNavigate("/dashboard")}>Dashboard</Button>
               <Button onClick={logout} className="bg-red-600 hover:bg-red-700">Logout</Button>
