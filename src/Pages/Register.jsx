@@ -17,6 +17,7 @@ import {
 } from 'firebase/auth';
 
 import { useAuth } from '../Context/AuthContext';
+import api from '../Utils/app'; 
 
 export default function RegisterPage() {
   const { theme } = useTheme();
@@ -31,7 +32,6 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('');
   const [hoverIcon, setHoverIcon] = useState(false);
 
-  // Live password validation state
   const [passValid, setPassValid] = useState({
     upper: false,
     lower: false,
@@ -40,7 +40,6 @@ export default function RegisterPage() {
 
   const controls = useAnimation();
 
-  // Animated icon
   useEffect(() => {
     controls.start({
       rotate: [0, 10, -10, 0],
@@ -48,7 +47,6 @@ export default function RegisterPage() {
     });
   }, [controls]);
 
-  // Real-time password validation
   const handlePasswordChange = (value) => {
     setPassword(value);
     setPassValid({
@@ -58,15 +56,15 @@ export default function RegisterPage() {
     });
   };
 
+  // --------------------------
   // REGISTER FUNCTION
+  // --------------------------
   const handleRegister = async (e) => {
     e.preventDefault();
-
     if (!name || !email || !password) {
       toast.error('All fields are required!');
       return;
     }
-
     if (!passValid.upper || !passValid.lower || !passValid.length) {
       return toast.error("Password doesn't meet all requirements!");
     }
@@ -74,56 +72,55 @@ export default function RegisterPage() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // Update Firebase profile
       await updateProfile(userCredential.user, {
         displayName: name,
         photoURL: photoURL || '',
       });
 
-      // Save in AuthContext
-      login({
-        name,
-        email,
-        photoURL,
-      });
+      const token = await userCredential.user.getIdToken();
+
+      // Send token to backend to sync/create user
+      const res = await api.post('/users', { token });
+
+      login(res.data);
 
       toast.success('Account created successfully!');
 
-      // Reset form
       setName('');
       setEmail('');
       setPhotoURL('');
       setPassword('');
       setPassValid({ upper: false, lower: false, length: false });
 
-      // Redirect → previous page or home
       const redirectTo = location.state?.from || '/';
       navigate(redirectTo);
 
     } catch (error) {
       toast.error(error.message);
+      console.error(error);
     }
   };
 
+  // --------------------------
   // GOOGLE REGISTER/LOGIN
+  // --------------------------
   const handleGoogleRegister = async () => {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
-
       const user = result.user;
 
-      login({
-        name: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-      });
+      const token = await user.getIdToken();
+
+      const res = await api.post('/users', { token });
+      login(res.data);
 
       toast.success('Google login successful!');
       navigate('/');
 
     } catch (error) {
       toast.error(error.message);
+      console.error(error);
     }
   };
 
@@ -137,7 +134,6 @@ export default function RegisterPage() {
         transition={{ duration: 0.6 }}
         className={`w-full max-w-md p-8 rounded-xl shadow-2xl ${isLight ? 'bg-white' : 'bg-gray-800'}`}
       >
-        {/* Animated Icon */}
         <div className="flex justify-center mb-6">
           <motion.div
             animate={controls}
@@ -154,9 +150,7 @@ export default function RegisterPage() {
           Create Your Account
         </h2>
 
-        {/* Form */}
         <form onSubmit={handleRegister} className="space-y-4">
-
           {/* Name */}
           <motion.div className="relative">
             <MdPersonAdd className="absolute left-3 top-3 text-gray-400" size={24} />
@@ -230,7 +224,6 @@ export default function RegisterPage() {
             </p>
           </div>
 
-          {/* Login Link */}
           <div className="flex justify-end text-sm">
             <button
               type="button"
@@ -241,20 +234,17 @@ export default function RegisterPage() {
             </button>
           </div>
 
-          {/* Submit */}
           <SecondaryButton type="submit" className="w-full mt-2">
             Register
           </SecondaryButton>
         </form>
 
-        {/* Divider */}
         <div className="flex items-center my-6">
           <hr className="flex-1 border-gray-300 dark:border-gray-600" />
           <span className="mx-2 text-gray-400">OR</span>
           <hr className="flex-1 border-gray-300 dark:border-gray-600" />
         </div>
 
-        {/* Google Login */}
         <motion.button
           onClick={handleGoogleRegister}
           whileHover={{ scale: 1.05 }}
@@ -268,7 +258,6 @@ export default function RegisterPage() {
             Continue with Google
           </span>
         </motion.button>
-
       </motion.div>
     </div>
   );

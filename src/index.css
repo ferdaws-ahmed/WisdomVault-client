@@ -6,3 +6,92 @@
 
 
 
+@keyframes gradient-slide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-slide {
+  background-size: 200% 200%;
+  animation: gradient-slide 5s ease infinite;
+}
+
+
+//* ========================================================= */
+/* === LESSON DETAILS - GLOBAL STYLES (Add to index.css) === */
+/* ========================================================= */
+
+/* --- 1. Hero/Reaction Badge Styles --- */
+/* (Used for Category/Tone badges on the image) */
+.reaction-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    transition: transform .2s ease, background .3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.reaction-badge:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+
+/* --- 2. Reaction Button Base Styles (Like, Save, Share) --- */
+.reaction-btn {
+    /* Tailwind equivalent: px-4 py-2 rounded-full font-semibold transition */
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    /* Light Mode Default */
+    background: #e5e7eb; /* bg-gray-200 */
+    color: #4b5563; /* text-gray-700 */
+}
+.reaction-btn:hover {
+    background: #d1d5db; /* hover:bg-gray-300 */
+    transform: translateY(-1px);
+}
+.reaction-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+/* Dark Mode Overrides for Reaction Button */
+.dark .reaction-btn {
+    background: #1f2937; /* dark:bg-gray-800 */
+    color: #d1d5db; /* dark:text-gray-300 */
+}
+.dark .reaction-btn:hover {
+    background: #374151; /* dark:hover:bg-gray-700 */
+}
+
+
+/* --- 3. Keyframe Animations --- */
+@keyframes pulse-red {
+    0% { transform: scale(1); background: #ef4444; }
+    50% { transform: scale(1.08); background: #dc2626; }
+    100% { transform: scale(1); background: #ef4444; }
+}
+@keyframes pulse-green {
+    0% { transform: scale(1); background: #10b981; }
+    50% { transform: scale(1.08); background: #059669; }
+    100% { transform: scale(1); background: #10b981; }
+}
+
+/* --- 4. Liked/Saved State Styles --- */
+.reaction-btn.liked {
+    background: #ef4444; /* red-500 */
+    color: white;
+    animation: pulse-red 0.5s ease-out;
+}
+.reaction-btn.saved {
+    background: #10b981; /* emerald-500 */
+    color: white;
+    animation: pulse-green 0.5s ease-out;
+}

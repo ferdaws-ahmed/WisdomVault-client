@@ -1,49 +1,93 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../Firebase/firebase config";
+import { signOut } from "firebase/auth";
 
 // Create AuthContext
 export const AuthContext = createContext();
 
-// Custom hook for easy access
+// Custom hook for consuming AuthContext
 export const useAuth = () => useContext(AuthContext);
 
-// AuthProvider Component
-function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);      
-  const [loading, setLoading] = useState(true); 
-
-  // On mount, load user from localStorage
-  useEffect(() => {
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(() => {
+    // Try to load user from localStorage initially
     const savedUser = localStorage.getItem("user");
-    if (savedUser) setUser(JSON.parse(savedUser));
-    setLoading(false);
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+  const [token, setToken] = useState(() => localStorage.getItem("token") || null);
+  const [loading, setLoading] = useState(true);
+
+  // Listen for Firebase auth state changes
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
+      if (firebaseUser) {
+        const idToken = await firebaseUser.getIdToken();
+        const userData = {
+          uid: firebaseUser.uid,
+          name: firebaseUser.displayName,
+          email: firebaseUser.email,
+          photoURL: firebaseUser.photoURL,
+        };
+        setUser(userData);
+        setToken(idToken);
+
+        localStorage.setItem("user", JSON.stringify(userData));
+        localStorage.setItem("token", idToken);
+      } else {
+        setUser(null);
+        setToken(null);
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  // LOGIN function
-  const login = (userData) => {
+  // LOGIN
+  const login = async (firebaseUser) => {
+    const idToken = await firebaseUser.getIdToken();
+    const userData = {
+      uid: firebaseUser.uid,
+      name: firebaseUser.displayName,
+      email: firebaseUser.email,
+      photoURL: firebaseUser.photoURL,
+    };
     setUser(userData);
+    setToken(idToken);
+
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", idToken);
   };
 
-  // LOGOUT function
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
+  // LOGOUT
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Firebase signout error:", error);
+    } finally {
+      setUser(null);
+      setToken(null);
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+    }
   };
 
-  // Context value
   const value = {
     user,
+    token,
     login,
     logout,
     loading,
     isAuthenticated: !!user,
   };
 
-  // Optionally, show nothing while loading
+  // Optional: render a spinner or skeleton while loading
   if (loading) return null;
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
+};
 
 export default AuthProvider;

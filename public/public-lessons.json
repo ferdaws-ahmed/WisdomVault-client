@@ -1,0 +1,642 @@
+[
+  {
+    "_id": "l1",
+    "title": "Failure Is a Teacher, Not a Verdict",
+    "shortDescription": "Failure is not the end—it is feedback that guides growth.",
+    "fullDescription": "Failure is often perceived as a negative outcome, a sign that we are not capable, or worse, a reflection of our worth. However, when approached with the right mindset, failure becomes an invaluable teacher that guides our growth. Each mistake reveals gaps in our knowledge and highlights areas where we need to improve. By analyzing these errors without judgment, we gain insights into how to approach similar challenges differently in the future. Over time, repeated failures build resilience, patience, and humility. They teach us to persevere when situations seem impossible and remind us that success is rarely instantaneous. The fear of failure often holds people back, preventing them from attempting new ventures or exploring unfamiliar territories. By reframing failure as a learning opportunity, we reduce anxiety and develop confidence in our ability to overcome obstacles. Reflecting on past failures and extracting lessons from them accelerates personal growth and equips us with the tools necessary to navigate life's uncertainties. In essence, failure is not a verdict on our abilities; it is a mirror that reflects where we can improve and grow.",
+    "category": "Life Advice",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1506784365847-bbad939e9335",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Alif Rahman", "photo": "https://i.pravatar.cc/150?img=12" },
+    "likesCount": 124,
+    "favoritesCount": 48,
+    "createdAt": "2024-11-01",
+    "comments": [
+      { "name": "John Doe", "comment": "This is very insightful!", "date": "2024-10-30" },
+      { "name": "Jane Smith", "comment": "Loved this perspective.", "date": "2024-10-31" },
+      { "name": "Chris", "comment": "Great insight!", "date": "2024-10-29" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2024-10-28" }
+    ]
+  },
+  {
+    "_id": "l2",
+    "title": "Consistency Beats Motivation",
+    "shortDescription": "Daily consistency creates results even when motivation fades.",
+    "fullDescription": "Motivation is often fleeting; it comes in bursts and disappears just as quickly. Relying solely on motivation for productivity or growth is a fragile strategy. Instead, cultivating consistent habits and routines ensures steady progress regardless of temporary emotional states. Consistency allows us to build momentum, gradually improving skills and achieving goals. By committing to small, daily actions, we reinforce discipline and develop a sense of accountability. Over time, these repeated efforts compound, leading to significant results that far surpass sporadic bursts of work driven by motivation alone. When obstacles or distractions arise, consistent routines provide a structured framework to continue moving forward. This approach also reduces stress and emotional burnout because progress becomes predictable and manageable. Emphasizing consistency over motivation shifts the focus from temporary feelings to long-term strategies, helping individuals achieve lasting success and fulfillment in their personal and professional lives. It reminds us that showing up every day, even with small steps, ultimately leads to mastery and growth.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Nusrat Jahan", "photo": "https://i.pravatar.cc/150?img=32" },
+    "likesCount": 342,
+    "favoritesCount": 120,
+    "createdAt": "2024-10-22",
+    "comments": [
+      { "name": "Alice", "comment": "Consistency really works!", "date": "2024-10-21" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2024-10-20" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2024-10-19" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2024-10-18" }
+    ]
+  },
+  {
+    "_id": "l3",
+    "title": "Not Every Silence Means Peace",
+    "shortDescription": "Silence can hide unresolved emotions and unmet needs.",
+    "fullDescription": "Remaining silent in challenging situations often seems like the easiest approach. Silence can protect us from conflict or uncomfortable conversations, but it can also conceal unresolved emotions and unmet needs. Over time, unspoken feelings accumulate, creating tension within relationships and within oneself. Choosing to communicate openly and honestly, even when difficult, fosters understanding, strengthens bonds, and prevents misinterpretations. Silence may indicate peace on the surface, but without addressing underlying emotions, true harmony remains elusive. Learning to express thoughts and emotions constructively improves both personal and professional relationships. Furthermore, embracing communication encourages self-awareness, emotional regulation, and empathy toward others. Recognizing the difference between healthy silence and avoidance empowers individuals to set boundaries while maintaining connection. In essence, silence is not always a sign of contentment; it is a reflection of what remains unspoken, and addressing it consciously is essential for growth, clarity, and authentic relationships.",
+    "category": "Psychology",
+    "emotionalTone": "Sad",
+    "image": "https://images.unsplash.com/photo-1524307438425-27c39061bb73",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Tanvir Ahmed", "photo": "https://i.pravatar.cc/150?img=56" },
+    "likesCount": 89,
+    "favoritesCount": 61,
+    "createdAt": "2024-09-18",
+    "comments": [
+      { "name": "Michael", "comment": "Silence can be deceiving.", "date": "2024-09-17" },
+      { "name": "Sara", "comment": "Communication is key!", "date": "2024-09-16" }
+    ]
+  },
+  {
+    "_id": "l4",
+    "title": "Learning to Say No Changed My Life",
+    "shortDescription": "Healthy boundaries protect time, energy, and mental peace.",
+    "fullDescription": "Saying 'no' is often uncomfortable, especially for people who fear disappointing others. However, learning to say no is a crucial skill for protecting personal time, energy, and mental wellbeing. Without boundaries, we may overcommit, leading to stress, burnout, and resentment. By respectfully declining requests that do not align with our priorities or values, we can focus on what truly matters. Saying no also communicates self-respect and clarity, helping others understand our limits. Over time, this practice strengthens relationships because it fosters mutual respect and prevents misunderstandings. Establishing boundaries allows us to invest in personal growth, creativity, and meaningful activities. It is a transformative habit that empowers individuals to regain control over their lives while maintaining kindness and empathy toward others. Learning to say no is not about rejecting others but about valuing oneself, ensuring that our energy is directed toward goals and relationships that nurture growth and happiness.",
+    "category": "Life Skills",
+    "emotionalTone": "Gratitude",
+    "image": "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Rafi Hasan", "photo": "https://i.pravatar.cc/150?img=44" },
+    "likesCount": 201,
+    "favoritesCount": 97,
+    "createdAt": "2024-08-30",
+    "comments": [
+      { "name": "Olivia", "comment": "Saying no is liberating!", "date": "2024-08-29" },
+      { "name": "Jessica", "comment": "Highly valuable lesson.", "date": "2024-08-28" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2024-08-27" }
+    ]
+  },
+  {
+    "_id": "l5",
+    "title": "Your Career Is Not Your Identity",
+    "shortDescription": "Job titles don’t define personal worth or happiness.",
+    "fullDescription": "Many people tie their sense of self-worth to their career or professional achievements. While a career can provide financial stability and a sense of purpose, it does not define who we are at our core. Losing a job or changing careers can feel devastating, but it also presents an opportunity to reflect on personal values, passions, and relationships. Our identity encompasses our character, skills, creativity, relationships, and experiences beyond the workplace. By recognizing this, we reduce undue stress, cultivate resilience, and find meaning in other aspects of life. This understanding encourages individuals to pursue growth in diverse areas and avoid burnout caused by overidentifying with work. Ultimately, separating career from identity fosters emotional freedom, authenticity, and long-term fulfillment. We learn to embrace change, explore new opportunities, and define success on our own terms rather than by external labels or societal expectations.",
+    "category": "Personal Growth",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Sabrina Noor", "photo": "https://i.pravatar.cc/150?img=5" },
+    "likesCount": 156,
+    "favoritesCount": 88,
+    "createdAt": "2024-07-14",
+    "comments": [
+      { "name": "Peter", "comment": "This really resonates with me.", "date": "2024-07-13" },
+      { "name": "Rachel", "comment": "Career isn't everything!", "date": "2024-07-12" },
+      { "name": "Kevin", "comment": "Simple yet profound.", "date": "2024-07-11" }
+    ]
+  },
+   {
+    "_id": "l6",
+    "title": "Growth Begins Outside Comfort",
+    "shortDescription": "Comfort feels safe, but growth demands challenge.",
+    "fullDescription": "Growth is rarely achieved within the confines of comfort. While comfort provides a sense of security, it often leads to stagnation. True development happens when we face challenges, take risks, and push our boundaries. Every discomfort encountered is an opportunity to learn something new about ourselves and the world. By stepping outside comfort zones, we confront fears, overcome limiting beliefs, and discover hidden strengths. Challenges teach resilience, patience, and problem-solving skills. They also highlight areas where improvement is needed, fostering self-awareness and personal evolution. Embracing discomfort regularly allows for continual growth and helps build confidence, adaptability, and courage. Each small step beyond comfort adds up, forming habits that promote long-term success. In essence, personal and professional growth begins where comfort ends, urging us to embrace uncertainty, take bold actions, and cultivate a mindset oriented toward learning, innovation, and self-improvement.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1522199755839-a2bacb67c546",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Imran Hossain", "photo": "https://i.pravatar.cc/150?img=18" },
+    "likesCount": 278,
+    "favoritesCount": 132,
+    "createdAt": "2024-06-05",
+    "comments": [
+      { "name": "Sam", "comment": "Stepping out of comfort is essential!", "date": "2024-06-04" },
+      { "name": "Lina", "comment": "Love this approach to growth.", "date": "2024-06-03" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2024-06-02" },
+      { "name": "Ben", "comment": "So true, thanks for sharing.", "date": "2024-06-01" }
+    ]
+  },
+  {
+    "_id": "l7",
+    "title": "Mistakes Are Proof You Tried",
+    "shortDescription": "Mistakes confirm effort, courage, and learning.",
+    "fullDescription": "Mistakes are often viewed as failures, but they are actually proof that we are taking action and making an effort. Each mistake offers valuable lessons that cannot be learned without experiencing setbacks. By reflecting on errors, we gain insight into what strategies work and what needs improvement. Mistakes foster resilience, problem-solving skills, and adaptability, which are all essential for growth. Avoiding mistakes entirely limits opportunities and leads to stagnation. Accepting mistakes as part of the learning process encourages risk-taking and innovation. Over time, repeated efforts combined with learning from mistakes create mastery and confidence. Embracing mistakes with a positive mindset transforms obstacles into stepping stones. In professional and personal contexts alike, understanding that errors are temporary and instructive rather than permanent failures builds perseverance and emotional strength. Ultimately, mistakes are proof of courage, effort, and the willingness to grow beyond comfort zones.",
+    "category": "Daily Wisdom",
+    "emotionalTone": "Motivational",
+    "image": "https://i.postimg.cc/jjyVSLBg/Gemini-Generated-Image-7y1jio7y1jio7y1j.png",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Ayesha Akter", "photo": "https://i.pravatar.cc/150?img=22" },
+    "likesCount": 190,
+    "favoritesCount": 77,
+    "createdAt": "2024-05-19",
+    "comments": [
+      { "name": "Tom", "comment": "Mistakes are learning gold!", "date": "2024-05-18" },
+      { "name": "Nina", "comment": "Totally agree with this.", "date": "2024-05-17" },
+      { "name": "Chris", "comment": "Great insight!", "date": "2024-05-16" }
+    ]
+  },
+  {
+    "_id": "l8",
+    "title": "Healing Is Not Linear",
+    "shortDescription": "Progress and setbacks coexist during emotional healing.",
+    "fullDescription": "Healing, whether emotional, mental, or physical, is rarely a straight path. It involves progress interspersed with setbacks, moments of clarity followed by confusion, and periods of strength mixed with vulnerability. Recognizing that healing is not linear allows us to be patient with ourselves and avoid discouragement when difficulties arise. Each step, no matter how small, contributes to recovery, and every setback provides insights into our resilience and needs. Mindfulness, self-compassion, and seeking support are crucial in navigating the complex process of healing. Comparing oneself to others or expecting instant results only adds pressure and can slow progress. By embracing the ebb and flow of healing, we cultivate patience, understanding, and acceptance. This approach helps maintain motivation and emotional stability while fostering long-term wellbeing. Accepting imperfection and embracing gradual improvement empower us to rebuild confidence, self-esteem, and emotional strength. Healing is a journey that teaches resilience, self-awareness, and compassion.",
+    "category": "Psychology",
+    "emotionalTone": "Sad",
+    "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Mahmudul Hasan", "photo": "https://i.pravatar.cc/150?img=63" },
+    "likesCount": 111,
+    "favoritesCount": 69,
+    "createdAt": "2024-04-02",
+    "comments": [
+      { "name": "Emily", "comment": "Healing truly takes patience.", "date": "2024-04-01" },
+      { "name": "David", "comment": "So relatable!", "date": "2024-03-31" }
+    ]
+  },
+  {
+    "_id": "l9",
+    "title": "Comparison Steals Joy",
+    "shortDescription": "Comparing journeys creates unnecessary dissatisfaction.",
+    "fullDescription": "Comparing ourselves to others is a common habit, yet it often leads to dissatisfaction and frustration. Every individual has a unique path, shaped by personal experiences, choices, and circumstances. Measuring success by the standards of others undermines our own achievements and diminishes self-esteem. Instead, focusing on personal progress and acknowledging small victories fosters contentment and motivation. Self-reflection and gratitude help in appreciating our journey rather than envying someone else's. Recognizing that comparison is often based on incomplete information can reduce the pressure we place on ourselves. Building awareness of personal strengths and setting realistic goals cultivates confidence and encourages continuous growth. Over time, letting go of comparisons enhances emotional well-being, promotes authenticity, and allows us to embrace our individuality. By valuing our unique journey and progress, we can find true satisfaction and peace of mind.",
+    "category": "Life Advice",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1517511620798-cec17d428bc0",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Zahid Khan", "photo": "https://i.pravatar.cc/150?img=9" },
+    "likesCount": 233,
+    "favoritesCount": 140,
+    "createdAt": "2024-03-11",
+    "comments": [
+      { "name": "Sophia", "comment": "Comparison is the thief of joy!", "date": "2024-03-10" },
+      { "name": "Liam", "comment": "Very true, personal progress matters.", "date": "2024-03-09" },
+      { "name": "Ben", "comment": "So true, thanks for sharing.", "date": "2024-03-08" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2024-03-07" }
+    ]
+  },
+  {
+    "_id": "l10",
+    "title": "Gratitude Changes Perspective",
+    "shortDescription": "Gratitude shifts focus from lack to abundance.",
+    "fullDescription": "Practicing gratitude is a powerful habit that can transform our outlook on life. By intentionally acknowledging the positives, however small, we shift attention away from what is lacking and cultivate a mindset of abundance. Gratitude fosters emotional resilience, enhances relationships, and improves mental health. Keeping a daily journal, reflecting on moments of joy, or expressing thanks to others reinforces this practice. Over time, gratitude encourages optimism, reduces stress, and strengthens our sense of fulfillment. It changes how we perceive challenges, allowing us to focus on solutions rather than problems. When we adopt a grateful mindset, life feels richer and more meaningful. This habit also enhances empathy and compassion, enabling better connection with others. Embracing gratitude as a daily practice is a step toward holistic wellbeing, fostering contentment, emotional stability, and long-term happiness.",
+    "category": "Personal Growth",
+    "emotionalTone": "Gratitude",
+    "image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Farhan Kabir", "photo": "https://i.pravatar.cc/150?img=41" },
+    "likesCount": 301,
+    "favoritesCount": 188,
+    "createdAt": "2024-02-20",
+    "comments": [
+      { "name": "Grace", "comment": "Gratitude truly shifts mindset.", "date": "2024-02-19" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2024-02-18" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2024-02-17" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2024-02-16" }
+    ]
+  },
+  {
+    "_id": "l11",
+    "title": "Patience Is a Superpower",
+    "shortDescription": "Great things take time to grow and mature.",
+    "fullDescription": "Patience is one of the most underrated virtues in a fast-paced world. True growth and mastery in any field require time, repeated effort, and perseverance. Rushing through tasks or expecting instant results often leads to mistakes, burnout, and frustration. Developing patience allows us to approach challenges with calmness, make thoughtful decisions, and persist through difficulties without losing motivation. It teaches resilience, emotional regulation, and the importance of process over immediate outcomes. Cultivating patience also improves relationships, as understanding and empathy take time to develop. By embracing patience, we learn to celebrate incremental progress, appreciate the journey, and trust in our ability to achieve long-term goals. Each delay or setback becomes a learning opportunity rather than a source of frustration, and life becomes less stressful and more fulfilling. The superpower of patience equips us to navigate uncertainty and complexity, ultimately leading to sustainable success and inner peace.",
+    "category": "Life Skills",
+    "emotionalTone": "Gratitude",
+    "image": "https://i.postimg.cc/GmkzBGhT/Gemini-Generated-Image-nwjhrnnwjhrnnwjh.png",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Sadia Rahman", "photo": "https://i.pravatar.cc/150?img=15" },
+    "likesCount": 176,
+    "favoritesCount": 90,
+    "createdAt": "2024-01-18",
+    "comments": [
+      { "name": "Anna", "comment": "Patience really is a hidden strength!", "date": "2024-01-17" },
+      { "name": "Mark", "comment": "Needed this reminder today.", "date": "2024-01-16" },
+      { "name": "Jessica", "comment": "Highly valuable lesson.", "date": "2024-01-15" }
+    ]
+  },
+  {
+    "_id": "l12",
+    "title": "Fear Is a Compass",
+    "shortDescription": "Fear points you toward areas where growth is possible.",
+    "fullDescription": "Fear is often perceived as a negative emotion to avoid, but it can actually serve as a powerful guide. When we feel fear, it usually indicates areas where growth, learning, or meaningful change is possible. Avoiding fear limits potential and keeps us within comfort zones. Facing fears, step by step, builds courage, resilience, and self-confidence. By acknowledging fear rather than running from it, we gain clarity on what truly matters and where personal development lies. Each act of confronting fear expands our capabilities and reveals untapped potential. Over time, habitual engagement with fears cultivates bravery and adaptability, which are invaluable in both personal and professional life. Fear, when recognized and channeled wisely, acts as a compass, pointing toward opportunities that align with our values and aspirations. Embracing fear transforms it from a source of anxiety into a tool for growth and empowerment.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1517511620798-cec17d428bc0",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Jamal Uddin", "photo": "https://i.pravatar.cc/150?img=33" },
+    "likesCount": 142,
+    "favoritesCount": 73,
+    "createdAt": "2023-12-25",
+    "comments": [
+      { "name": "Olivia", "comment": "Fear really can guide us!", "date": "2023-12-24" },
+      { "name": "Ethan", "comment": "Powerful perspective on fear.", "date": "2023-12-23" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2023-12-22" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2023-12-21" }
+    ]
+  },
+  {
+    "_id": "l13",
+    "title": "Small Wins Matter",
+    "shortDescription": "Recognizing progress, however small, fuels momentum.",
+    "fullDescription": "Small wins are often overlooked, yet they form the foundation of long-term success. Every small accomplishment, when acknowledged, builds confidence, reinforces positive habits, and motivates continued effort. Celebrating minor achievements encourages consistency, reduces overwhelm, and highlights progress that might otherwise go unnoticed. In challenging projects or personal goals, focusing solely on the final outcome can be discouraging. By breaking goals into smaller, achievable tasks and appreciating each completed step, we create momentum that propels us forward. This approach cultivates resilience, perseverance, and a growth mindset. Small wins also provide feedback, helping us adjust strategies, learn from experiences, and refine our approach. Ultimately, recognizing the importance of small victories not only sustains motivation but also enhances overall satisfaction, making the journey toward larger goals more enjoyable and rewarding.",
+    "category": "Daily Wisdom",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Lamia Akter", "photo": "https://i.pravatar.cc/150?img=28" },
+    "likesCount": 205,
+    "favoritesCount": 112,
+    "createdAt": "2023-11-20",
+    "comments": [
+      { "name": "Henry", "comment": "Small steps really lead to big change.", "date": "2023-11-19" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2023-11-18" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2023-11-17" }
+    ]
+  },
+  {
+    "_id": "l14",
+    "title": "Mindfulness Changes Everything",
+    "shortDescription": "Being present reduces stress and improves clarity.",
+    "fullDescription": "Mindfulness is the practice of focusing on the present moment with awareness and non-judgment. In a world filled with distractions, practicing mindfulness helps reduce stress, enhance focus, and improve emotional regulation. By observing thoughts and emotions without immediately reacting, we gain clarity and perspective. Mindfulness encourages intentional action rather than impulsive reactions, which improves decision-making and relationships. Daily exercises like meditation, mindful breathing, or simply paying attention to routine tasks can strengthen mindfulness skills. Over time, mindfulness fosters patience, empathy, and a deeper understanding of oneself. It allows us to break the cycle of rumination and anxiety, enhancing mental well-being. Incorporating mindfulness into daily life creates balance, promotes calmness, and enables us to fully experience the richness of each moment, transforming how we live, work, and connect with others.",
+    "category": "Psychology",
+    "emotionalTone": "Calm",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Nabil Chowdhury", "photo": "https://i.pravatar.cc/150?img=35" },
+    "likesCount": 123,
+    "favoritesCount": 65,
+    "createdAt": "2023-10-15",
+    "comments": [
+      { "name": "Clara", "comment": "Mindfulness has changed my life!", "date": "2023-10-14" },
+      { "name": "Alex", "comment": "So calming and useful.", "date": "2023-10-13" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2023-10-12" }
+    ]
+  },
+  {
+    "_id": "l15",
+    "title": "Kindness Comes Back",
+    "shortDescription": "Acts of kindness create ripple effects of positivity.",
+    "fullDescription": "Kindness is one of the most impactful behaviors, capable of creating positive ripple effects beyond immediate actions. Small gestures, whether helping someone, offering encouragement, or simply listening, can profoundly affect both the giver and receiver. Practicing kindness builds empathy, strengthens relationships, and contributes to a supportive and compassionate community. It also enhances personal well-being, reducing stress and increasing happiness. Acts of kindness encourage reciprocity, inspiring others to act similarly, which magnifies the positive effect. In challenging situations, responding with kindness rather than judgment can transform conflicts into opportunities for understanding and cooperation. Cultivating kindness consistently fosters emotional intelligence, patience, and social harmony. Ultimately, living with kindness enriches our own lives and the lives of those around us, creating a more connected, compassionate, and harmonious world.",
+    "category": "Life Advice",
+    "emotionalTone": "Gratitude",
+    "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Raisa Sultana", "photo": "https://i.pravatar.cc/150?img=29" },
+    "likesCount": 198,
+    "favoritesCount": 102,
+    "createdAt": "2023-09-10",
+    "comments": [
+      { "name": "Sophia", "comment": "Kindness truly makes the world better.", "date": "2023-09-09" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2023-09-08" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2023-09-07" },
+      { "name": "Kevin", "comment": "Simple yet profound.", "date": "2023-09-06" }
+    ]
+  },
+  {
+    "_id": "l16",
+    "title": "Change Your Environment, Change Your Life",
+    "shortDescription": "Surroundings influence habits and mindset.",
+    "fullDescription": "The environment we inhabit shapes our behavior, mindset, and habits more than we often realize. Surrounding ourselves with supportive, motivating, and positive influences encourages personal growth, productivity, and emotional well-being. Conversely, toxic or unsupportive environments can hinder progress, reduce motivation, and negatively impact mental health. By intentionally curating our physical and social surroundings, we can reinforce positive habits, inspire creativity, and maintain focus on our goals. Simple changes, such as decluttering, adjusting workspaces, or connecting with like-minded individuals, can have profound effects on mindset and performance. Recognizing the power of environment allows us to take control of external factors that influence our daily life. When we consciously choose surroundings that align with our values and aspirations, we create conditions for sustained success, growth, and happiness.",
+    "category": "Life Skills",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "creator": { "name": "Fahim Ahmed", "photo": "https://i.pravatar.cc/150?img=45" },
+    "likesCount": 134,
+    "favoritesCount": 77,
+    "createdAt": "2023-08-05",
+    "comments": [
+      { "name": "Maya", "comment": "Environment really shapes habits.", "date": "2023-08-04" },
+      { "name": "Jake", "comment": "So true, surroundings matter a lot.", "date": "2023-08-03" }
+    ]
+  },
+  {
+    "_id": "l17",
+    "title": "Curiosity Fuels Learning",
+    "shortDescription": "Asking questions opens doors to knowledge.",
+    "fullDescription": "Curiosity is the driving force behind all meaningful learning and discovery. By asking questions, exploring new ideas, and challenging assumptions, we open ourselves to new experiences and deeper understanding. Curiosity encourages critical thinking, creativity, and problem-solving. It pushes us beyond comfort zones and inspires continuous growth, as we seek to understand the world more fully. Embracing curiosity means allowing ourselves to make mistakes, experiment, and learn from both success and failure. It also fosters adaptability, helping us navigate complex situations with an open mind. Curiosity can lead to personal and professional development, enabling us to acquire new skills, knowledge, and perspectives. Cultivating curiosity requires a willingness to listen, observe, and reflect, as well as the courage to pursue answers even when they challenge our beliefs. Ultimately, curiosity enriches life, nurtures wisdom, and creates a mindset oriented toward lifelong learning, innovation, and meaningful engagement with the world.",
+    "category": "Personal Growth",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1526045612212-70caf35c14df",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Anika Hossain", "photo": "https://i.pravatar.cc/150?img=16" },
+    "likesCount": 178,
+    "favoritesCount": 88,
+    "createdAt": "2023-07-01",
+    "comments": [
+      { "name": "Liam", "comment": "Curiosity truly leads to growth!", "date": "2023-06-30" },
+      { "name": "Sophia", "comment": "Inspiring message about learning.", "date": "2023-06-29" },
+      { "name": "Chris", "comment": "Great insight!", "date": "2023-06-28" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2023-06-27" }
+    ]
+  },
+  {
+    "_id": "l18",
+    "title": "Overthinking Kills Creativity",
+    "shortDescription": "Excessive thinking can block ideas and actions.",
+    "fullDescription": "Overthinking can paralyze action, hinder creativity, and prevent us from achieving our full potential. When we overanalyze every detail or anticipate all possible outcomes, we may lose spontaneity and the ability to innovate. Creative thinking requires flexibility, experimentation, and a willingness to take risks, which is often obstructed by excessive rumination. Learning to act decisively, trust intuition, and embrace imperfection allows ideas to flow and projects to progress. Overthinking can also increase stress and anxiety, reducing mental clarity and focus. Developing strategies to manage overthinking—such as mindfulness, prioritization, and breaking tasks into smaller steps—fosters creativity and productivity. Accepting that not all outcomes are controllable encourages exploration and experimentation. By overcoming overthinking, we cultivate a mindset that values action, encourages learning from mistakes, and nurtures creative expression. Creativity thrives in a space where ideas can grow freely without the constraints of constant doubt or self-criticism.",
+    "category": "Psychology",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Shahriar Kabir", "photo": "https://i.pravatar.cc/150?img=50" },
+    "likesCount": 145,
+    "favoritesCount": 80,
+    "createdAt": "2023-06-18",
+    "comments": [
+      { "name": "Emma", "comment": "Needed this reminder, overthinking kills ideas.", "date": "2023-06-17" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2023-06-16" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2023-06-15" }
+    ]
+  },
+  {
+    "_id": "l19",
+    "title": "Resilience Is Built Through Adversity",
+    "shortDescription": "Challenges strengthen character and resolve.",
+    "fullDescription": "Resilience is not something we are born with; it is developed through facing adversity and overcoming challenges. Difficult situations test our limits, reveal our strengths, and teach us important life lessons. Each setback, failure, or obstacle offers an opportunity to grow, adapt, and emerge stronger. Building resilience involves cultivating a positive mindset, learning from mistakes, and maintaining perseverance in the face of difficulties. It requires emotional awareness, self-compassion, and the ability to remain focused on long-term goals despite short-term hardships. Resilient individuals are better equipped to manage stress, handle uncertainty, and maintain optimism even when circumstances are tough. They view challenges as opportunities for growth rather than insurmountable problems. By embracing adversity, we develop inner strength, adaptability, and confidence. Over time, resilience becomes a core characteristic, empowering us to navigate life’s ups and downs with courage and grace, ultimately leading to a more fulfilling and balanced life.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1534081333815-ae5019106622",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Tanima Akter", "photo": "https://i.pravatar.cc/150?img=20" },
+    "likesCount": 210,
+    "favoritesCount": 98,
+    "createdAt": "2023-05-10",
+    "comments": [
+      { "name": "Noah", "comment": "Adversity really shapes us.", "date": "2023-05-09" },
+      { "name": "Mia", "comment": "Very motivating!", "date": "2023-05-08" }
+    ]
+  },
+  {
+    "_id": "l20",
+    "title": "Self-Compassion Matters",
+    "shortDescription": "Being kind to yourself promotes emotional health.",
+    "fullDescription": "Self-compassion is the practice of treating oneself with the same kindness, concern, and understanding we would offer a friend. Many people are overly critical of themselves, focusing on perceived failures and shortcomings, which increases stress and diminishes self-esteem. Practicing self-compassion helps counter negative self-talk, fosters emotional resilience, and promotes mental well-being. It encourages us to recognize our humanity, accept imperfection, and respond to challenges with patience and care. Through self-compassion, we develop healthier coping strategies, reduce anxiety, and maintain motivation without harsh self-judgment. It also enhances our capacity to show empathy and kindness toward others, as our ability to care for ourselves directly influences how we interact with the world. Incorporating self-compassion into daily life improves overall satisfaction, reduces emotional suffering, and supports personal growth. It is a foundational skill for sustaining long-term emotional health, cultivating inner peace, and achieving a balanced, fulfilling life.",
+    "category": "Psychology",
+    "emotionalTone": "Calm",
+    "image": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Shuvra Ahmed", "photo": "https://i.pravatar.cc/150?img=52" },
+    "likesCount": 132,
+    "favoritesCount": 72,
+    "createdAt": "2023-04-15",
+    "comments": [
+      { "name": "Lily", "comment": "Self-compassion is so important!", "date": "2023-04-14" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2023-04-13" },
+      { "name": "Jessica", "comment": "Highly valuable lesson.", "date": "2023-04-12" }
+    ]
+  },
+  {
+    "_id": "l21",
+    "title": "Embrace the Unknown",
+    "shortDescription": "Uncertainty can lead to growth and new opportunities.",
+    "fullDescription": "Stepping into the unknown is often intimidating, but it is also where the greatest growth occurs. Avoiding uncertainty keeps us within familiar patterns, limiting experiences and potential opportunities. Embracing the unknown requires courage, adaptability, and trust in one’s abilities. It encourages exploration, innovation, and resilience as we navigate unfamiliar situations. By confronting uncertainty rather than fearing it, we discover new perspectives, build confidence, and expand our skills. Accepting that not all outcomes can be predicted fosters flexibility and reduces anxiety. Each uncertain step becomes an opportunity to learn, adapt, and grow stronger. Life unfolds in ways we cannot always control, and embracing uncertainty allows us to take advantage of unexpected opportunities, develop creativity, and cultivate resilience. Ultimately, embracing the unknown transforms fear into empowerment and creates pathways for meaningful personal and professional growth.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Rumana Islam", "photo": "https://i.pravatar.cc/150?img=60" },
+    "likesCount": 154,
+    "favoritesCount": 82,
+    "createdAt": "2023-03-12",
+    "comments": [
+      { "name": "Oliver", "comment": "The unknown is where growth happens!", "date": "2023-03-11" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2023-03-10" },
+      { "name": "Kevin", "comment": "Simple yet profound.", "date": "2023-03-09" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2023-03-08" }
+    ]
+  },
+  {
+    "_id": "l22",
+    "title": "Focus on What You Can Control",
+    "shortDescription": "Let go of the rest and save energy for action.",
+    "fullDescription": "Focusing on what we can control allows us to use our energy effectively and reduces unnecessary stress. Many aspects of life are outside our control, and obsessing over them can lead to frustration, anxiety, and wasted effort. By identifying controllable elements, we can take deliberate action to influence outcomes, improve situations, and achieve goals. This approach encourages responsibility, problem-solving, and strategic thinking. Letting go of uncontrollable factors frees mental space and emotional energy, enabling us to respond to challenges with clarity and composure. It also fosters acceptance and resilience, as we stop fighting against inevitable circumstances. By consistently practicing control over our thoughts, actions, and attitudes, we increase productivity, emotional balance, and personal effectiveness. This mindset empowers individuals to focus on growth, solutions, and progress rather than dwelling on obstacles beyond their influence.",
+    "category": "Life Advice",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Samiha Khan", "photo": "https://i.pravatar.cc/150?img=25" },
+    "likesCount": 198,
+    "favoritesCount": 101,
+    "createdAt": "2023-02-05",
+    "comments": [
+      { "name": "Grace", "comment": "Focus on what you can change, perfect advice.", "date": "2023-02-04" },
+      { "name": "Ben", "comment": "So true, thanks for sharing.", "date": "2023-02-03" },
+      { "name": "Chris", "comment": "Great insight!", "date": "2023-02-02" }
+    ]
+  },
+  {
+    "_id": "l23",
+    "title": "Your Mind Is Powerful",
+    "shortDescription": "Thoughts shape reality—choose them wisely.",
+    "fullDescription": "Our minds have immense power in shaping our experiences and outcomes. The way we think influences our beliefs, actions, and perceptions of reality. Positive, constructive thinking promotes motivation, resilience, and well-being, whereas negative thinking can create obstacles, self-doubt, and stress. By cultivating awareness of our thoughts and intentionally redirecting them toward empowering perspectives, we can influence our behaviors, decisions, and the quality of our relationships. Mindset determines how we respond to challenges, setbacks, and opportunities. Practicing mindfulness, self-reflection, and positive self-talk strengthens mental resilience and enhances performance. Harnessing the power of the mind enables us to create meaningful change, achieve goals, and live a more fulfilling life. Recognizing the impact of thoughts on emotions and actions is the first step toward intentional living and personal empowerment.",
+    "category": "Personal Growth",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Rasheda Akter", "photo": "https://i.pravatar.cc/150?img=36" },
+    "likesCount": 167,
+    "favoritesCount": 88,
+    "createdAt": "2023-01-20",
+    "comments": [
+      { "name": "Aiden", "comment": "Mindset really shapes everything.", "date": "2023-01-19" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2023-01-18" }
+    ]
+  },
+  {
+    "_id": "l24",
+    "title": "Simplify Your Life",
+    "shortDescription": "Less clutter, more clarity and freedom.",
+    "fullDescription": "Simplifying life is about reducing unnecessary complexity, distractions, and possessions to focus on what truly matters. Clutter, whether physical, mental, or emotional, can create stress, reduce productivity, and cloud judgment. By decluttering spaces, setting priorities, and letting go of non-essential commitments, we gain clarity, freedom, and energy to devote to meaningful pursuits. Simplification encourages intentional living, mindful decision-making, and improved time management. It also enhances well-being, creativity, and emotional balance. Simplifying routines, focusing on core values, and creating organized environments contribute to a sense of control and satisfaction. This approach allows us to engage more deeply with relationships, work, and personal growth. Ultimately, simplicity leads to greater happiness, reduced stress, and a more intentional and fulfilling life.",
+    "category": "Life Skills",
+    "emotionalTone": "Calm",
+    "image": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Arif Chowdhury", "photo": "https://i.pravatar.cc/150?img=40" },
+    "likesCount": 189,
+    "favoritesCount": 95,
+    "createdAt": "2022-12-30",
+    "comments": [
+      { "name": "Evelyn", "comment": "Simplicity really brings clarity.", "date": "2022-12-29" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2022-12-28" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2022-12-27" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2022-12-26" }
+    ]
+  },
+  {
+    "_id": "l25",
+    "title": "Celebrate Others’ Success",
+    "shortDescription": "Compliment and learn from others rather than compare.",
+    "fullDescription": "Celebrating the successes of others cultivates a positive mindset, strengthens relationships, and reduces unnecessary comparison. When we acknowledge and appreciate the achievements of peers, colleagues, or friends, we foster goodwill, inspiration, and a collaborative environment. This practice enhances empathy, encourages learning from others’ experiences, and builds supportive communities. By focusing on admiration and learning rather than envy, we shift attention to personal growth, set positive examples, and reinforce our own aspirations. Celebrating others’ accomplishments reduces negativity, builds self-confidence, and improves overall social dynamics. It also creates a culture of encouragement and recognition, motivating continuous improvement and collective progress. Embracing this perspective enriches both personal and professional life, as positivity, gratitude, and genuine celebration foster deeper connections, resilience, and a sense of shared purpose.",
+    "category": "Life Advice",
+    "emotionalTone": "Gratitude",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "creator": { "name": "Sadia Hossain", "photo": "https://i.pravatar.cc/150?img=61" },
+    "likesCount": 145,
+    "favoritesCount": 80,
+    "createdAt": "2022-11-18",
+    "comments": [
+      { "name": "Zoe", "comment": "Celebrating others feels so good!", "date": "2022-11-17" },
+      { "name": "Jessica", "comment": "Highly valuable lesson.", "date": "2022-11-16" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2022-11-15" }
+    ]
+  },
+  {
+    "_id": "l26",
+    "title": "Rest Is Productive",
+    "shortDescription": "Taking breaks boosts efficiency and creativity.",
+    "fullDescription": "Rest is not a sign of laziness; it is an essential component of productivity, creativity, and overall well-being. Constant work without sufficient breaks leads to fatigue, stress, and decreased efficiency. Proper rest, whether through sleep, relaxation, or short breaks during work, restores energy, enhances focus, and improves decision-making. Rest also supports physical and mental health, strengthens memory and learning, and allows for creative insights to emerge. By prioritizing rest, we can sustain performance over time, prevent burnout, and approach challenges with renewed perspective and vigor. Recognizing the value of recovery helps individuals manage workload effectively, balance responsibilities, and maintain long-term growth. A culture that honors rest fosters resilience, innovation, and overall life satisfaction. Integrating rest into routines ensures that efforts are productive, sustainable, and aligned with health and well-being.",
+    "category": "Life Skills",
+    "emotionalTone": "Calm",
+    "image": "https://i.postimg.cc/pL2kFy9q/Gemini-Generated-Image-t2244bt2244bt224.png",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Shamima Rahman", "photo": "https://i.pravatar.cc/150?img=42" },
+    "likesCount": 178,
+    "favoritesCount": 85,
+    "createdAt": "2022-10-05",
+    "comments": [
+      { "name": "Lucas", "comment": "Rest is part of productivity!", "date": "2022-10-04" },
+      { "name": "Kevin", "comment": "Simple yet profound.", "date": "2022-10-03" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2022-10-02" }
+    ]
+  },
+  {
+    "_id": "l27",
+    "title": "Trust the Process",
+    "shortDescription": "Progress is gradual—patience pays off.",
+    "fullDescription": "Trusting the process is fundamental to achieving long-term goals and personal growth. Immediate results are rare; meaningful outcomes require sustained effort, learning from failures, and persistence. Trusting the process means maintaining focus, believing in gradual improvement, and accepting that setbacks are part of the journey. It encourages patience, resilience, and perseverance, reminding us that effort compounds over time. By embracing uncertainty and maintaining consistent action, we build skills, character, and experience that ultimately lead to success. Trusting the process reduces anxiety about outcomes, fosters discipline, and allows for adaptability in changing circumstances. It emphasizes the value of steady progress, reflection, and persistence. When we trust the process, we cultivate confidence, self-efficacy, and the ability to navigate challenges while remaining committed to our vision. Success becomes a journey, not a race, and every step contributes to meaningful achievement.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Fahima Karim", "photo": "https://i.pravatar.cc/150?img=53" },
+    "likesCount": 164,
+    "favoritesCount": 89,
+    "createdAt": "2022-09-01",
+    "comments": [
+      { "name": "Ella", "comment": "Trusting the process really works!", "date": "2022-08-31" },
+      { "name": "Ben", "comment": "So true, thanks for sharing.", "date": "2022-08-30" },
+      { "name": "Chris", "comment": "Great insight!", "date": "2022-08-29" },
+      { "name": "Daniel", "comment": "Really needed to read this.", "date": "2022-08-28" }
+    ]
+  },
+  {
+    "_id": "l28",
+    "title": "Gratitude Shifts Perspective",
+    "shortDescription": "Appreciating what you have improves well-being.",
+    "fullDescription": "Gratitude is the practice of recognizing and appreciating the positive aspects of life, both big and small. It shifts focus from what is lacking to what is present, fostering contentment, happiness, and emotional resilience. Practicing gratitude strengthens relationships, reduces stress, and enhances mental and physical health. Daily reflection on moments of thankfulness encourages mindfulness, perspective, and compassion. Gratitude helps us value experiences, people, and opportunities, reinforcing positive behavior and personal growth. It also creates a ripple effect, inspiring kindness and positivity in others. Incorporating gratitude into daily routines, such as journaling, expressing thanks, or mindful acknowledgment, enhances overall well-being. A grateful mindset transforms challenges into learning opportunities, reduces negative thinking, and fosters an optimistic outlook. By focusing on gratitude, we develop a deeper appreciation for life, improve emotional intelligence, and experience a more fulfilling and meaningful existence.",
+    "category": "Life Advice",
+    "emotionalTone": "Gratitude",
+    "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Raihan Mahmud", "photo": "https://i.pravatar.cc/150?img=44" },
+    "likesCount": 193,
+    "favoritesCount": 110,
+    "createdAt": "2022-08-15",
+    "comments": [
+      { "name": "Charlotte", "comment": "Gratitude really changes perspective.", "date": "2022-08-14" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2022-08-13" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2022-08-12" }
+    ]
+  },
+  {
+    "_id": "l29",
+    "title": "Failure Is Feedback",
+    "shortDescription": "Mistakes are opportunities to improve, not to quit.",
+    "fullDescription": "Failure is an inevitable part of any meaningful journey. It is not a verdict on our abilities, but feedback that guides learning and improvement. When we fail, we gain insight into what works, what doesn’t, and where adjustments are needed. Embracing failure as feedback encourages experimentation, resilience, and continuous growth. It teaches humility, patience, and problem-solving. Those who view failure as a teacher develop stronger coping mechanisms, adaptability, and confidence. Instead of fearing mistakes, they use them to refine strategies and enhance skills. Accepting failure reduces the emotional burden of perfectionism, promotes perseverance, and helps set realistic expectations. By learning from each setback and applying lessons learned, individuals move closer to achieving their goals. Ultimately, understanding that failure is feedback transforms challenges into opportunities, making the journey more constructive, rewarding, and enlightening.",
+    "category": "Motivation",
+    "emotionalTone": "Realization",
+    "image": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
+    "visibility": "public",
+    "accessLevel": "premium",
+    "premiumContent": "This content is exclusive for premium users. Unlock to see full details.",
+    "creator": { "name": "Tahsin Chowdhury", "photo": "https://i.pravatar.cc/150?img=54" },
+    "likesCount": 178,
+    "favoritesCount": 92,
+    "createdAt": "2022-07-20",
+    "comments": [
+      { "name": "Isaac", "comment": "Failure really is the best teacher.", "date": "2022-07-19" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2022-07-18" },
+      { "name": "Jessica", "comment": "Highly valuable lesson.", "date": "2022-07-17" },
+      { "name": "Tony", "comment": "Wisdom for everyday life.", "date": "2022-07-16" }
+    ]
+  },
+  {
+    "_id": "l30",
+    "title": "Discipline Creates Freedom",
+    "shortDescription": "Structured habits lead to autonomy and choice.",
+    "fullDescription": "Discipline is often misunderstood as restriction, but in reality, it creates freedom. By establishing structured habits, routines, and self-control, we gain the ability to pursue long-term goals, maintain consistency, and make deliberate choices. Discipline provides clarity, focus, and efficiency, reducing stress and preventing chaos. It allows us to manage time, prioritize tasks, and build momentum toward meaningful outcomes. While discipline may require temporary sacrifices or delayed gratification, it ultimately enables greater autonomy, flexibility, and freedom in life. Practicing discipline strengthens willpower, resilience, and self-confidence. It also fosters personal accountability, responsibility, and integrity. Through disciplined action, individuals can break harmful patterns, achieve mastery, and experience lasting success. Freedom, paradoxically, is born from consistent, deliberate effort and the ability to control impulses in alignment with values and goals. Discipline empowers us to create lives that are purposeful, productive, and fulfilling.",
+    "category": "Life Skills",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1531497865141-5c5e7e7b9c3d",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Nafisa Akter", "photo": "https://i.pravatar.cc/150?img=47" },
+    "likesCount": 212,
+    "favoritesCount": 105,
+    "createdAt": "2022-06-10",
+    "comments": [
+      { "name": "Sophia", "comment": "Discipline really does bring freedom!", "date": "2022-06-09" },
+      { "name": "Kevin", "comment": "Simple yet profound.", "date": "2022-06-08" },
+      { "name": "Sarah", "comment": "Exactly what I was looking for.", "date": "2022-06-07" },
+      { "name": "Ben", "comment": "So true, thanks for sharing.", "date": "2022-06-06" }
+    ]
+  },
+  {
+    "_id": "l2",
+    "title": "Consistency Beats Motivation",
+    "shortDescription": "Daily consistency creates results even when motivation fades.",
+    "fullDescription": "Motivation is often fleeting; it comes in bursts and disappears just as quickly. Relying solely on motivation for productivity or growth is a fragile strategy. Instead, cultivating consistent habits and routines ensures steady progress regardless of temporary emotional states. Consistency allows us to build momentum, gradually improving skills and achieving goals. By committing to small, daily actions, we reinforce discipline and develop a sense of accountability. Over time, these repeated efforts compound, leading to significant results that far surpass sporadic bursts of work driven by motivation alone. When obstacles or distractions arise, consistent routines provide a structured framework to continue moving forward. This approach also reduces stress and emotional burnout because progress becomes predictable and manageable. Emphasizing consistency over motivation shifts the focus from temporary feelings to long-term strategies, helping individuals achieve lasting success and fulfillment in their personal and professional lives. It reminds us that showing up every day, even with small steps, ultimately leads to mastery and growth.",
+    "category": "Motivation",
+    "emotionalTone": "Motivational",
+    "image": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b",
+    "visibility": "public",
+    "accessLevel": "free",
+    "creator": { "name": "Nusrat Jahan", "photo": "https://i.pravatar.cc/150?img=32" },
+    "likesCount": 342,
+    "favoritesCount": 120,
+    "createdAt": "2024-10-22",
+    "comments": [
+      { "name": "Alice", "comment": "Consistency really works!", "date": "2024-10-21" },
+      { "name": "Frank", "comment": "A powerful reminder.", "date": "2024-10-20" },
+      { "name": "Emily", "comment": "This changed my view.", "date": "2024-10-19" },
+      { "name": "Robert", "comment": "Very helpful content.", "date": "2024-10-18" }
+    ]
+  }
+]
