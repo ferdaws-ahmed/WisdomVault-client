@@ -116,7 +116,8 @@ export default function PublicLessons() {
   const [categoryFilter, setCategoryFilter] = useState("All");
 
   useEffect(() => {
-    fetch("/public-lessons.json")
+    fetch("http://localhost:3000/lessons")
+
       .then(res => res.json())
       .then(data => {
         setLessons(data);
