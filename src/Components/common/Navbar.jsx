@@ -99,10 +99,13 @@ export default function Navbar() {
             ) : (
               <div className="relative">
                 <motion.img
-                  src={user.photoURL || "https://i.ibb.co/2FsfXqM/user.png"}
+                   key={user?.photoURL}
+                  src={user?.photoURL || `https://ui-avatars.com/api/?name=${user?.name}`}
+                  alt="User"
+
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500 object-cover"
-                  alt="avatar"
+                 
                   whileHover={{ scale: 1.1 }}
                 />
                 <AnimatePresence>
@@ -160,6 +163,7 @@ export default function Navbar() {
                   <p className="font-bold mb-3">{user.name || "User"}</p>
                   <div className="flex flex-col gap-2">
                     <Button onClick={() => handleNavigate("/dashboard/profile")}>Profile</Button>
+                    <Button onClick={() => handleNavigate("/dashboard")}>Dashboard</Button>
                     <Button onClick={logout} className="bg-red-600 text-white">Logout</Button>
                   </div>
                 </div>

@@ -11,6 +11,12 @@ import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Pages/Home/Home";
 import PublicLessons from "../Pages/PublicLessons";
 import LessonDetails from "../Pages/LessonDetails";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+import UserOverview from "../Dashboard/User-role/UserOverView";
+import AddLesson from "../Dashboard/User-role/add-lesson";
+import MyLessons from "../Dashboard/User-role/my-lessons";
+import Profile from "../Dashboard/User-role/profile";
+
 
 
 
@@ -44,7 +50,8 @@ const router = createBrowserRouter([
             {
                 path:'/lesson-details/:lessonId',
                 element:<LessonDetails></LessonDetails>
-            }
+            },
+            
         ]
     },
 
@@ -52,9 +59,34 @@ const router = createBrowserRouter([
 
 
     {
+                path:'/dashboard',
+                element: <DashboardLayout></DashboardLayout>,
+                children: [
+                    {
+                        index: true,
+                        element: <UserOverview></UserOverview>
+                    },
+                    {
+                        path:'add-lesson',
+                        element:<AddLesson></AddLesson>
+                    },
+                    {
+                        path:'my-lessons',
+                        element:<MyLessons></MyLessons>
+                    },
+                    {
+                        path:'profile',
+                        element: <Profile></Profile>
+                    }
+                ]
+    },
+
+
+    {
         path: '*',
         element: <ErrorPage></ErrorPage>
     }
+    
 ])
 
 

@@ -1,93 +1,99 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase config";
+import axios from "axios";
 import { signOut } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 
-// Create AuthContext
-export const AuthContext = createContext();
+// Axios Instance
+const api = axios.create({
+  baseURL: "http://localhost:3000",
+});
 
-// Custom hook for consuming AuthContext
+const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    // Try to load user from localStorage initially
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });
-  const [token, setToken] = useState(() => localStorage.getItem("token") || null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Listen for Firebase auth state changes
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (firebaseUser) => {
-      if (firebaseUser) {
-        const idToken = await firebaseUser.getIdToken();
-        const userData = {
-          uid: firebaseUser.uid,
-          name: firebaseUser.displayName,
-          email: firebaseUser.email,
-          photoURL: firebaseUser.photoURL,
-        };
-        setUser(userData);
-        setToken(idToken);
+      setLoading(true);
+      try {
+        if (firebaseUser) {
+          const token = await firebaseUser.getIdToken();
 
-        localStorage.setItem("user", JSON.stringify(userData));
-        localStorage.setItem("token", idToken);
-      } else {
-        setUser(null);
-        setToken(null);
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
+          await api.post("/users", {}, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          const res = await api.get(`/users/status/${firebaseUser.email}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          setUser({
+            uid: firebaseUser.uid,
+            email: firebaseUser.email,
+            name: firebaseUser.displayName || "Anonymous",
+            photoURL: firebaseUser.photoURL,
+            role: res.data.role || "user",
+            isPremium: res.data.isPremium || false,
+            token,
+          });
+        } else {
+          setUser(null);
+        }
+      } catch (error) {
+        console.error("Auth Error:", error.response?.status, error.message);
+        if (firebaseUser) {
+          setUser({
+            uid: firebaseUser.uid,
+            email: firebaseUser.email,
+            name: firebaseUser.displayName,
+            role: "user",
+          });
+        }
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
-  // LOGIN
-  const login = async (firebaseUser) => {
-    const idToken = await firebaseUser.getIdToken();
-    const userData = {
-      uid: firebaseUser.uid,
-      name: firebaseUser.displayName,
-      email: firebaseUser.email,
-      photoURL: firebaseUser.photoURL,
-    };
-    setUser(userData);
-    setToken(idToken);
-
-    localStorage.setItem("user", JSON.stringify(userData));
-    localStorage.setItem("token", idToken);
-  };
-
-  // LOGOUT
   const logout = async () => {
+    await signOut(auth);
+    setUser(null);
+  };
+
+
+  
+const updateUser = async ({ displayName, photoURL }) => {
+  setUser((prev) => ({
+    ...prev,
+    name: displayName ?? prev?.name,
+    photoURL: photoURL ?? prev?.photoURL,
+  }));
+
+  if (auth.currentUser) {
     try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Firebase signout error:", error);
-    } finally {
-      setUser(null);
-      setToken(null);
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
+      await updateProfile(auth.currentUser, { displayName, photoURL });
+    } catch (err) {
+      console.error("Firebase profile update failed", err);
     }
-  };
+  }
+};
 
-  const value = {
-    user,
-    token,
-    login,
-    logout,
-    loading,
-    isAuthenticated: !!user,
-  };
 
-  // Optional: render a spinner or skeleton while loading
-  if (loading) return null;
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+
+
+
+  return (
+    <AuthContext.Provider value={{ user, loading, logout, setUser, updateUser }}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

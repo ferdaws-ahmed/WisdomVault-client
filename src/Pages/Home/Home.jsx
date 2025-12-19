@@ -3,13 +3,16 @@ import Navbar from '../../Components/common/Navbar';
 import HeroSlider from './HeroSection';
 import WhyLearningSection from './whyLearningSection';
 import TopContributors from './TopContributors';
+import CommunityImpactStats from './CommunityImpactStats';
 
 const Home = () => {
     return (
         <div>
             <HeroSlider></HeroSlider>
-            <TopContributors></TopContributors>
+            
             <WhyLearningSection></WhyLearningSection>
+            <TopContributors></TopContributors>
+            <CommunityImpactStats></CommunityImpactStats>
         </div>
     );
 };
