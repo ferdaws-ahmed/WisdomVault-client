@@ -69,14 +69,16 @@ const UserOverview = () => {
   /* ================= RECENT LESSONS ================= */
   const recentLessons = [...lessons].sort(
     (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  ).slice(0, 5); // last 5 lessons
+  ).slice(0, 5);
 
   return (
-    <div className="space-y-8 p-4 md:p-0">
+    <div className="space-y-8 p-4 md:p-0 text-gray-900 dark:text-gray-100">
       {/* HEADER */}
       <div>
         <h1 className="text-2xl font-bold">Dashboard Overview</h1>
-        <p className="opacity-70 text-sm">Welcome back, {user?.name || "User"}</p>
+        <p className="opacity-70 text-sm">
+          Welcome back, {user?.name || "User"}
+        </p>
       </div>
 
       {/* STATS */}
@@ -94,13 +96,15 @@ const UserOverview = () => {
       </div>
 
       {/* MONTHLY ANALYTICS CHART */}
-      <div className="bg-base-100 p-6 border rounded-xl shadow-sm">
+      <div className="bg-white dark:bg-gray-800 p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm">
         <h2 className="font-semibold mb-4 flex items-center gap-2">
           <FaChartBar /> Monthly Contributions
         </h2>
         {lessons.length === 0 ? (
-          <div className="h-[200px] flex items-center justify-center border-dashed border-2 rounded-lg">
-            <p className="text-sm opacity-60 text-center">No activity recorded yet for the chart.</p>
+          <div className="h-[200px] flex items-center justify-center border-dashed border-2 border-gray-300 dark:border-gray-600 rounded-lg">
+            <p className="text-sm opacity-60 text-center">
+              No activity recorded yet for the chart.
+            </p>
           </div>
         ) : (
           <div className="w-full h-[280px]">
@@ -110,7 +114,13 @@ const UserOverview = () => {
                 <XAxis dataKey="month" axisLine={false} tickLine={false} />
                 <YAxis allowDecimals={false} axisLine={false} tickLine={false} />
                 <Tooltip
-                  contentStyle={{ borderRadius: "8px", border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+                  contentStyle={{
+                    borderRadius: "8px",
+                    border: "none",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }}
                 />
                 <Line
                   type="monotone"
@@ -126,46 +136,44 @@ const UserOverview = () => {
         )}
       </div>
 
-      
       {/* RECENT LESSONS */}
-<div>
-  <h2 className="font-semibold mb-3">Recently Added Lessons</h2>
-  {recentLessons.length === 0 ? (
-    <div className="p-8 border-dashed border-2 rounded-lg text-center opacity-60 text-sm">
-      You haven't added any lessons yet.
-    </div>
-  ) : (
-    <ul className="space-y-3">
-      {recentLessons.map((lesson) => (
-        <li
-          key={lesson._id}
-          className="p-4 border rounded-lg bg-base-100 flex items-center gap-4 hover:shadow-md transition-shadow"
-        >
-          {/* Lesson Image */}
-          {lesson.image ? (
-            <img
-              src={lesson.image}
-              alt={lesson.title}
-              className="w-16 h-16 object-cover rounded-md flex-shrink-0"
-            />
-          ) : (
-            <div className="w-16 h-16 bg-gray-200 rounded-md flex-shrink-0 flex items-center justify-center text-xs opacity-50">
-              No Image
-            </div>
-          )}
-
-          <div className="flex-1 flex flex-col justify-between">
-            <span className="font-medium">{lesson.title}</span>
-            <span className="text-xs px-2 py-1 bg-base-200 rounded-full opacity-70 mt-1 w-fit">
-              {new Date(lesson.createdAt).toLocaleDateString()}
-            </span>
+      <div>
+        <h2 className="font-semibold mb-3">Recently Added Lessons</h2>
+        {recentLessons.length === 0 ? (
+          <div className="p-8 border-dashed border-2 rounded-lg text-center opacity-60 text-sm border-gray-300 dark:border-gray-600">
+            You haven't added any lessons yet.
           </div>
-        </li>
-      ))}
-    </ul>
-  )}
-</div>
+        ) : (
+          <ul className="space-y-3">
+            {recentLessons.map((lesson) => (
+              <li
+                key={lesson._id}
+                className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 flex items-center gap-4 hover:shadow-md transition-shadow"
+              >
+                {/* Lesson Image */}
+                {lesson.image ? (
+                  <img
+                    src={lesson.image}
+                    alt={lesson.title}
+                    className="w-16 h-16 object-cover rounded-md flex-shrink-0"
+                  />
+                ) : (
+                  <div className="w-16 h-16 bg-gray-200 dark:bg-gray-600 rounded-md flex-shrink-0 flex items-center justify-center text-xs opacity-50">
+                    No Image
+                  </div>
+                )}
 
+                <div className="flex-1 flex flex-col justify-between">
+                  <span className="font-medium">{lesson.title}</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full opacity-70 mt-1 w-fit">
+                    {new Date(lesson.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
@@ -174,8 +182,8 @@ export default UserOverview;
 
 /* ---------------- SMALL COMPONENTS ---------------- */
 const StatCard = ({ icon, title, value }) => (
-  <div className="p-6 bg-base-100 border rounded-xl flex items-center gap-4 shadow-sm hover:border-primary/50 transition-colors">
-    <div className="text-3xl p-3 bg-base-200 rounded-lg">{icon}</div>
+  <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl flex items-center gap-4 shadow-sm hover:border-primary/50 transition-colors">
+    <div className="text-3xl p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">{icon}</div>
     <div>
       <p className="text-sm font-medium opacity-60 uppercase tracking-wider">{title}</p>
       <p className="text-3xl font-bold">{value}</p>
@@ -184,7 +192,7 @@ const StatCard = ({ icon, title, value }) => (
 );
 
 const ActionButton = ({ icon, text }) => (
-  <button className="flex items-center gap-2 px-5 py-2.5 border rounded-lg font-medium hover:bg-primary hover:text-white transition-all active:scale-95 shadow-sm">
+  <button className="flex items-center gap-2 px-5 py-2.5 border border-gray-200 dark:border-gray-700 rounded-lg font-medium hover:bg-primary hover:text-white transition-all active:scale-95 shadow-sm">
     {icon} {text}
   </button>
 );
