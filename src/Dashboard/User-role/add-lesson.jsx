@@ -8,16 +8,19 @@ const AddLesson = () => {
 
   const [formData, setFormData] = useState({
     title: "",
-    description: "",
+    shortDescription: "",
+    fullDescription: "",
     category: "",
     emotionalTone: "",
-    image: "",
     visibility: "public",
     accessLevel: "free",
   });
 
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // handle text input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,50 +29,68 @@ const AddLesson = () => {
     }));
   };
 
+  // handle image file selection
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file)); // preview UI
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.title || !formData.description) {
-      toast.error("Title and description are required");
+    if (!formData.title || !formData.fullDescription) {
+      toast.error("Title and full description are required");
       return;
     }
 
     try {
       setLoading(true);
 
-      const lessonPayload = {
-        ...formData,
-        creator: {
-          name: user.name,
-          email: user.email,
-          photo: user.photoURL,
-        },
-        createdAt: new Date(),
-        likesCount: 0,
-        favoritesCount: 0,
-      };
+      // prepare FormData for file upload
+      const payload = new FormData();
+      payload.append("title", formData.title);
+      payload.append("shortDescription", formData.shortDescription);
+      payload.append("fullDescription", formData.fullDescription);
+      payload.append("category", formData.category);
+      payload.append("emotionalTone", formData.emotionalTone);
+      payload.append("visibility", formData.visibility);
+      payload.append("accessLevel", formData.accessLevel);
+      payload.append("creatorName", user.name);
+      payload.append("creatorEmail", user.email);
+      payload.append("creatorPhoto", user.photoURL);
+      payload.append("likesCount", 0);
+      payload.append("favoritesCount", 0);
+      payload.append("createdAt", new Date().toISOString());
+
+      if (imageFile) payload.append("image", imageFile);
 
       await axios.post(
         "http://localhost:3000/dashboard/add-lesson",
-        lessonPayload,
+        payload,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
 
       toast.success("Lesson created successfully!");
 
+      // reset form
       setFormData({
         title: "",
-        description: "",
+        shortDescription: "",
+        fullDescription: "",
         category: "",
         emotionalTone: "",
-        image: "",
         visibility: "public",
         accessLevel: "free",
       });
+      setImageFile(null);
+      setImagePreview(null);
     } catch (error) {
       console.error(error);
       toast.error("Failed to create lesson");
@@ -94,29 +115,39 @@ const AddLesson = () => {
           placeholder="Enter lesson title"
         />
 
-        {/* DESCRIPTION */}
+        {/* SHORT DESCRIPTION */}
+        <TextareaField
+          label="Short Description (Summary)"
+          name="shortDescription"
+          value={formData.shortDescription}
+          onChange={handleChange}
+          placeholder="Enter a brief summary..."
+        />
+
+        {/* FULL DESCRIPTION */}
         <TextareaField
           label="Full Description / Story / Insight"
-          name="description"
-          value={formData.description}
+          name="fullDescription"
+          value={formData.fullDescription}
           onChange={handleChange}
           placeholder="Write your lesson..."
         />
 
         {/* CATEGORY */}
         <SelectField
-          label="Category"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-          options={[
-            "Personal Growth",
-            "Career",
-            "Relationships",
-            "Mindset",
-            "Mistakes Learned",
-          ]}
-        />
+  label="Category"
+  name="category"
+  value={formData.category}
+  onChange={handleChange}
+  options={[
+    "Life Advice",
+    "Personal Growth",
+    "Motivation",
+    "Life Skills",
+    "Daily Wisdom",
+    "Psychology",
+  ]}
+/>
 
         {/* EMOTIONAL TONE */}
         <SelectField
@@ -127,14 +158,25 @@ const AddLesson = () => {
           options={["Motivational", "Sad", "Realization", "Gratitude"]}
         />
 
-        {/* IMAGE */}
-        <InputField
-          label="Image (Optional)"
-          name="image"
-          value={formData.image}
-          onChange={handleChange}
-          placeholder="Image URL"
-        />
+        {/* IMAGE UPLOAD */}
+        <div>
+          <label className="block mb-1 text-gray-900 dark:text-gray-100">
+            Upload Image
+          </label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="w-full"
+          />
+          {imagePreview && (
+            <img
+              src={imagePreview}
+              alt="preview"
+              className="mt-2 w-48 h-48 object-cover rounded"
+            />
+          )}
+        </div>
 
         {/* PRIVACY */}
         <SelectField
@@ -153,9 +195,7 @@ const AddLesson = () => {
           onChange={handleChange}
           options={["free", "premium"]}
           disabled={!user.isPremium}
-          tooltip={
-            user.isPremium ? "" : "Upgrade to Premium to create paid lessons"
-          }
+          tooltip={user.isPremium ? "" : "Upgrade to Premium to create paid lessons"}
         />
         {!user.isPremium && (
           <p className="text-xs text-warning mt-1">
