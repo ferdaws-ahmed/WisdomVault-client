@@ -163,7 +163,7 @@ const DashboardLayout = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/dashboard/add-lesson"
+                  to="/dashboard/add-lesson/user"
                   className={({ isActive }) =>
                     `${baseLink} ${
                       isActive ? activeLink : inactiveLink
@@ -174,7 +174,7 @@ const DashboardLayout = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/dashboard/my-lessons"
+                  to="/dashboard/my-lessons/user"
                   className={({ isActive }) =>
                     `${baseLink} ${
                       isActive ? activeLink : inactiveLink
@@ -185,7 +185,7 @@ const DashboardLayout = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/dashboard/profile"
+                  to="/dashboard/profile/user"
                   className={({ isActive }) =>
                     `${baseLink} ${
                       isActive ? activeLink : inactiveLink

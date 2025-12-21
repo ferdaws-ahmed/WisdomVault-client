@@ -15,7 +15,7 @@ import api from '../Utils/app';
 
 export default function LoginPage() {
   const { theme } = useTheme();
-  const { login } = useAuth();
+  const { setUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const isLight = theme === 'light';
@@ -39,48 +39,48 @@ export default function LoginPage() {
   // --------------------------
   // LOGIN FUNCTION
   // --------------------------
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!email || !password) return toast.error("Email & Password required!");
+const handleLogin = async (e) => {
+  e.preventDefault();
+  if (!email || !password) return toast.error("Email & Password required!");
 
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      login(user);
-      await api.post('/users'); // Sync with backend
-
-      toast.success("Login successful!");
-      setEmail('');
-      setPassword('');
-
-      const redirectTo = location.state?.from || '/';
-      navigate(redirectTo, { replace: true });
-    } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.message || error.message);
-    }
-  };
+  try {
+    
+    await signInWithEmailAndPassword(auth, email, password);
+    
+   
+    
+    toast.success("Login successful!");
+    const redirectTo = location.state?.from || '/';
+    navigate(redirectTo, { replace: true });
+  } catch (error) {
+    console.error(error);
+    toast.error(error.message);
+  }
+};
 
   // --------------------------
   // GOOGLE LOGIN
   // --------------------------
   const handleGoogleLogin = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      login(user);
-      await api.post('/users'); // Sync with backend
-
+  try {
+    const provider = new GoogleAuthProvider();
+    
+    const result = await signInWithPopup(auth, provider);
+    
+    if (result?.user) {
       toast.success("Google Login Successful!");
       navigate('/', { replace: true });
-    } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.message || error.message);
     }
-  };
+  } catch (error) {
+    
+    if (error.code === 'auth/popup-closed-by-user') {
+       toast.error("Login cancelled by user");
+    } else {
+       console.error(error);
+       toast.error(error.message);
+    }
+  }
+};
 
   return (
     <div className={`min-h-screen flex items-center justify-center px-4 ${isLight ? 'bg-gray-50' : 'bg-gray-900'}`}>

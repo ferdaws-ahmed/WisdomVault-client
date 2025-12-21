@@ -74,8 +74,8 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <NavItem to="/">Home</NavItem>
-          <NavItem onClick={() => protectedNavigate("/dashboard/add-lesson")}>Add Lesson</NavItem>
-          <NavItem onClick={() => protectedNavigate("/dashboard/my-lessons")}>My Lessons</NavItem>
+          <NavItem onClick={() => protectedNavigate("/dashboard/add-lesson/user")}>Add Lesson</NavItem>
+          <NavItem onClick={() => protectedNavigate("/dashboard/my-lessons/user")}>My Lessons</NavItem>
           <NavItem to="/lessons">Public Lessons</NavItem>
           <NavItem onClick={() => protectedNavigate("/upgrade")}>Upgrade</NavItem>
         </nav>
@@ -102,7 +102,7 @@ export default function Navbar() {
                    key={user?.photoURL}
                   src={user?.photoURL || `https://ui-avatars.com/api/?name=${user?.name}`}
                   alt="User"
-
+                  referrerPolicy="no-referrer"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500 object-cover"
                  
@@ -121,7 +121,7 @@ export default function Navbar() {
                       <p className="font-semibold text-center pb-2 border-b border-gray-200 dark:border-gray-700">
                         {user.displayName || user.name || "User"}
                       </p>
-                      <Button onClick={() => handleNavigate("/dashboard/profile")}>Profile</Button>
+                      <Button onClick={() => handleNavigate("/dashboard/profile/user")}>Profile</Button>
                       <Button onClick={() => handleNavigate("/dashboard")}>Dashboard</Button>
                       <Button onClick={logout} className="bg-red-600 hover:bg-red-700 text-white">Logout</Button>
                     </motion.div>
@@ -151,8 +151,8 @@ export default function Navbar() {
           >
             <div className="flex flex-col p-6 space-y-4">
               <NavLink to="/" onClick={() => setMobileMenuOpen(false)} className={linkStyle}>Home</NavLink>
-              <button onClick={() => protectedNavigate("/dashboard/add-lesson")} className="text-left py-2">Add Lesson</button>
-              <button onClick={() => protectedNavigate("/dashboard/my-lessons")} className="text-left py-2">My Lessons</button>
+              <button onClick={() => protectedNavigate("/dashboard/add-lesson/user")} className="text-left py-2">Add Lesson</button>
+              <button onClick={() => protectedNavigate("/dashboard/my-lessons/user")} className="text-left py-2">My Lessons</button>
               <NavLink to="/lessons" onClick={() => setMobileMenuOpen(false)} className={linkStyle}>Public Lessons</NavLink>
               <button onClick={() => protectedNavigate("/upgrade")} className="text-left py-2 text-blue-500 font-semibold">Upgrade</button>
 
@@ -162,7 +162,7 @@ export default function Navbar() {
                 <div className={`mt-4 p-4 rounded-xl border ${theme === "light" ? "bg-gray-50" : "bg-gray-800 border-gray-700"}`}>
                   <p className="font-bold mb-3">{user.name || "User"}</p>
                   <div className="flex flex-col gap-2">
-                    <Button onClick={() => handleNavigate("/dashboard/profile")}>Profile</Button>
+                    <Button onClick={() => handleNavigate("/dashboard/profile/user")}>Profile</Button>
                     <Button onClick={() => handleNavigate("/dashboard")}>Dashboard</Button>
                     <Button onClick={logout} className="bg-red-600 text-white">Logout</Button>
                   </div>

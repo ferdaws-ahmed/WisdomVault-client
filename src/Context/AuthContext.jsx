@@ -1,10 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase config";
 import axios from "axios";
-import { signOut } from "firebase/auth";
-import { updateProfile } from "firebase/auth";
+import { signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"; 
 
-// Axios Instance
 const api = axios.create({
   baseURL: "http://localhost:3000",
 });
@@ -21,11 +20,13 @@ const AuthProvider = ({ children }) => {
       setLoading(true);
       try {
         if (firebaseUser) {
-          const token = await firebaseUser.getIdToken();
+          const token = await firebaseUser.getIdToken(true);
 
-          await api.post("/users", {}, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+     
+          await api.post("/users", 
+            { name: firebaseUser.displayName }, 
+            { headers: { Authorization: `Bearer ${token}` } }
+          );
 
           const res = await api.get(`/users/status/${firebaseUser.email}`, {
             headers: { Authorization: `Bearer ${token}` },
@@ -44,12 +45,13 @@ const AuthProvider = ({ children }) => {
           setUser(null);
         }
       } catch (error) {
-        console.error("Auth Error:", error.response?.status, error.message);
+        console.error("Auth Sync Error:", error.response?.status, error.message);
         if (firebaseUser) {
           setUser({
             uid: firebaseUser.uid,
             email: firebaseUser.email,
             name: firebaseUser.displayName,
+            photoURL: firebaseUser.photoURL,
             role: "user",
           });
         }
@@ -61,36 +63,42 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+
+ 
+  const googleLogin = () => {
+  const provider = new GoogleAuthProvider();
+  setLoading(true);
+  return signInWithPopup(auth, provider);
+};
+
   const logout = async () => {
     await signOut(auth);
     setUser(null);
   };
 
-
-  
-const updateUser = async ({ displayName, photoURL }) => {
-  setUser((prev) => ({
-    ...prev,
-    name: displayName ?? prev?.name,
-    photoURL: photoURL ?? prev?.photoURL,
-  }));
-
-  if (auth.currentUser) {
+  const updateUser = async ({ displayName, photoURL }) => {
+    if (!auth.currentUser) return;
     try {
-      await updateProfile(auth.currentUser, { displayName, photoURL });
+      await updateProfile(auth.currentUser, {
+        displayName: displayName || auth.currentUser.displayName,
+        photoURL: photoURL || auth.currentUser.photoURL,
+      });
+
+      setUser((prev) => ({
+        ...prev,
+        name: displayName || prev?.name,
+        photoURL: photoURL || prev?.photoURL,
+      }));
+
+      return true;
     } catch (err) {
-      console.error("Firebase profile update failed", err);
+      console.error("Profile update failed in context:", err);
+      throw err;
     }
-  }
-};
-
-
-
-
-
+  };
 
   return (
-    <AuthContext.Provider value={{ user, loading, logout, setUser, updateUser }}>
+    <AuthContext.Provider value={{ user, loading, logout, setUser, updateUser,googleLogin }}>
       {!loading && children}
     </AuthContext.Provider>
   );
