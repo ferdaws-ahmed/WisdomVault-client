@@ -116,7 +116,7 @@ export default function PublicLessons() {
   const [categoryFilter, setCategoryFilter] = useState("All");
 
   useEffect(() => {
-    fetch("http://localhost:3000/lessons")
+    fetch("https://wisdomvaultserver.vercel.app/lessons")
 
       .then(res => res.json())
       .then(data => {

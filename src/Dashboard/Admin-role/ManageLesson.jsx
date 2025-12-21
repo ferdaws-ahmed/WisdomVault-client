@@ -17,7 +17,7 @@ const ManageLessons = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "http://localhost:3000/admin/manage-lessons"
+        "https://wisdomvaultserver.vercel.app/admin/manage-lessons"
         // 🔧 change endpoint here if needed
       );
       setLessons(res.data);
@@ -36,7 +36,7 @@ const ManageLessons = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/admin/lessons/${id}`);
+      await axios.delete(`https://wisdomvaultserver.vercel.app/admin/lessons/${id}`);
       setLessons((prev) => prev.filter((l) => l._id !== id));
     } catch (error) {
       console.error("Lesson delete failed", error);
@@ -54,7 +54,7 @@ const ManageLessons = () => {
       setUpdating(true);
 
       const res = await axios.patch(
-        `http://localhost:3000/admin/lessons/access/${selectedLesson._id}`,
+        `https://wisdomvaultserver.vercel.app/admin/lessons/access/${selectedLesson._id}`,
         { accessLevel: nextAccess }
       );
 

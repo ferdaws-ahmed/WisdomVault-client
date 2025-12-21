@@ -11,7 +11,7 @@ export default function CommunityImpactStats() {
   });
 
   useEffect(() => {
-    fetch("http://localhost:3000/community-stats")
+    fetch("https://wisdomvaultserver.vercel.app/community-stats")
       .then(res => res.json())
       .then(data => {
         setStats({

@@ -37,13 +37,13 @@ const AdminDashboard = () => {
         const token = localStorage.getItem("token"); // Firebase token
 
         // ------------------ STATS ------------------
-        const statsRes = await axios.get("http://localhost:3000/admin/dashboard-stats", {
+        const statsRes = await axios.get("https://wisdomvaultserver.vercel.app/admin/dashboard-stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStats(statsRes.data);
 
         // ------------------ Recent Users ------------------
-        const usersRes = await axios.get("http://localhost:3000/admin/recent-users", {
+        const usersRes = await axios.get("https://wisdomvaultserver.vercel.app/admin/recent-users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRecentUsers(usersRes.data.map(u => ({
@@ -52,7 +52,7 @@ const AdminDashboard = () => {
         })));
 
         // ------------------ Recent Lessons ------------------
-        const lessonsRes = await axios.get("http://localhost:3000/admin/recent-lessons", {
+        const lessonsRes = await axios.get("https://wisdomvaultserver.vercel.app/admin/recent-lessons", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRecentLessons(lessonsRes.data.map(l => ({

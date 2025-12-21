@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Check, X, ShieldCheck, Crown } from 'lucide-react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import PaymentModal from './PaymentModal'; 
+
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const PricingPage = () => {
-  
+  // const { user } = useAuth(); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState({ plan: '', price: 0 });
+
   const handleUpgrade = (planType) => {
-    // Backend call logic here
-    console.log(`Upgrading to ${planType}`);
+    const price = planType === 'premium' ? 1500 : 3000;
+    setSelectedPlan({ plan: planType, price: price });
+    setIsModalOpen(true);
   };
 
   return (
@@ -45,7 +55,7 @@ const PricingPage = () => {
                 onClick={() => handleUpgrade('premium')}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-colors shadow-lg shadow-blue-500/30"
               >
-                Choose Premium Plan
+                Buy Premium Plan
               </button>
             </div>
           </div>
@@ -76,7 +86,7 @@ const PricingPage = () => {
           </div>
         </div>
 
-        {/* Comparison Table */}
+        {/* Comparison Table (DESIGN ONLY) */}
         <div className="max-w-4xl mx-auto overflow-hidden">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">Feature Comparison</h3>
           <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
@@ -96,35 +106,25 @@ const PricingPage = () => {
                   <td className="p-4 text-center font-semibold text-sm text-gray-800 dark:text-gray-200">Unlimited</td>
                   <td className="p-4 text-center font-semibold text-sm text-gray-800 dark:text-gray-200">Unlimited</td>
                 </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                  <td className="p-4 text-gray-700 dark:text-gray-300">Lesson Creation</td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                  <td className="p-4 text-gray-700 dark:text-gray-300">Ad-free Experience</td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                  <td className="p-4 text-gray-700 dark:text-gray-300">Admin Dashboard</td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                </tr>
-                <tr className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                  <td className="p-4 text-gray-700 dark:text-gray-300">Manage Users</td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><X className="mx-auto text-red-400" size={18}/></td>
-                  <td className="p-4 text-center"><Check className="mx-auto text-green-500" size={18}/></td>
-                </tr>
+               
               </tbody>
             </table>
           </div>
         </div>
       </div>
+
+      {/* STRIPE MODAL INTEGRATION */}
+      {isModalOpen && (
+        <Elements stripe={stripePromise}>
+          <PaymentModal 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+            plan={selectedPlan.plan} 
+            price={selectedPlan.price}
+            
+          />
+        </Elements>
+      )}
     </div>
   );
 };

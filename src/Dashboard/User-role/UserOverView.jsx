@@ -21,7 +21,7 @@ const UserOverview = () => {
     const fetchLessons = async () => {
       if (!user?.token) return;
       try {
-        const res = await axios.get("http://localhost:3000/dashboard/my-lessons", {
+        const res = await axios.get("https://wisdomvaultserver.vercel.app/dashboard/my-lessons", {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setLessons(res.data || []);

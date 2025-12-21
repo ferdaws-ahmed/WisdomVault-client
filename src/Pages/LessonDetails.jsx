@@ -36,7 +36,7 @@ export default function LessonDetails() {
 
   // ================= FETCH LESSONS =================
   useEffect(() => {
-    fetch("http://localhost:3000/lessons")
+    fetch("https://wisdomvaultserver.vercel.app/lessons")
       .then((res) => res.json())
       .then((data) => {
         setAllLessons(data);

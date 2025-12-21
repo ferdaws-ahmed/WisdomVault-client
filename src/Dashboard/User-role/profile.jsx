@@ -3,7 +3,6 @@ import { useAuth } from "../../Context/AuthContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-
 const Profile = () => {
   const { user, updateUser } = useAuth();
   const fileInputRef = useRef(null);
@@ -17,7 +16,7 @@ const Profile = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState("");
 
-  const BASE_URL = "http://localhost:3000";
+  const BASE_URL = "https://wisdomvaultserver.vercel.app";
 
   /* ================= FETCH PROFILE + MY LESSONS ================= */
   useEffect(() => {
@@ -31,12 +30,19 @@ const Profile = () => {
           headers: { Authorization: `Bearer ${user.token}` },
         });
 
-        setProfileData(profileRes.data);
+        const profile = profileRes.data;
+
+        // Ensure full URL
+        const photoURL = profile.photoURL?.startsWith("http")
+          ? profile.photoURL
+          : `${BASE_URL}${profile.photoURL || ""}`;
+
+        setProfileData(profile);
         setFormData({
-          name: profileRes.data.name || "",
-          photoURL: profileRes.data.photoURL || "",
+          name: profile.name || "",
+          photoURL,
         });
-        setPreviewURL(profileRes.data.photoURL || "");
+        setPreviewURL(photoURL);
 
         // My lessons
         const lessonsRes = await axios.get(`${BASE_URL}/dashboard/my-lessons`, {
@@ -65,11 +71,10 @@ const Profile = () => {
     const file = e.target.files[0];
     if (!file) return;
     setSelectedFile(file);
-    setPreviewURL(URL.createObjectURL(file));
+    setPreviewURL(URL.createObjectURL(file)); 
   };
 
-
-const uploadProfileImage = async () => {
+  const uploadProfileImage = async () => {
   if (!selectedFile) return formData.photoURL;
 
   try {
@@ -83,83 +88,68 @@ const uploadProfileImage = async () => {
       },
     });
 
-    
-    console.log("Uploaded Image URL:", res.data.photoURL);
-    
-    if (res.data?.photoURL) return res.data.photoURL;
-    return formData.photoURL;
+    return res.data.photoURL;
   } catch (err) {
-    console.error("Image upload failed:", err);
+    console.error("Image upload failed:", err.response?.data || err.message);
+    toast.error("Image upload failed");
     return formData.photoURL;
   }
 };
 
-const handleUpdateProfile = async (e) => {
-  e.preventDefault();
-  setUpdating(true);
 
-  try {
-    let finalPhotoURL = formData.photoURL;
 
-    
-    if (selectedFile) {
-      const form = new FormData();
-      form.append("profileImage", selectedFile);
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    setUpdating(true);
 
-      const uploadRes = await axios.post(`${BASE_URL}/users/upload-profile`, form, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+    try {
+      let finalPhotoURL = formData.photoURL;
 
-      if (uploadRes.data?.photoURL) {
-        finalPhotoURL = uploadRes.data.photoURL;
+      if (selectedFile) {
+        finalPhotoURL = await uploadProfileImage();
       }
+
+      const updateDbRes = await axios.put(
+        `${BASE_URL}/users/update-profile`,
+        {
+          name: formData.name,
+          photoURL: finalPhotoURL,
+        },
+        { headers: { Authorization: `Bearer ${user.token}` } }
+      );
+
+      if (updateDbRes.data.success) {
+        const cacheBustedURL = `${finalPhotoURL}?v=${Date.now()}`;
+
+        await updateUser({
+          displayName: formData.name,
+          photoURL: cacheBustedURL,
+        });
+
+        setProfileData((prev) => ({
+          ...prev,
+          name: formData.name,
+          photoURL: cacheBustedURL,
+        }));
+
+        setFormData((prev) => ({
+          ...prev,
+          photoURL: cacheBustedURL,
+        }));
+
+        setPreviewURL(cacheBustedURL);
+        setSelectedFile(null);
+        if (fileInputRef.current) fileInputRef.current.value = "";
+
+        toast.success("Profile and Photo updated successfully!");
+      }
+    } catch (err) {
+      console.error("Update fail detail:", err.response?.data || err.message);
+      toast.error("Update failed. Please check backend console.");
+    } finally {
+      setUpdating(false);
     }
-
-   
-    const updateDbRes = await axios.put(`${BASE_URL}/users/update-profile`, 
-      { 
-        name: formData.name, 
-        photoURL: finalPhotoURL 
-      }, 
-      { headers: { Authorization: `Bearer ${user.token}` } }
-    );
-
-    if (updateDbRes.data.success) {
-      
-      const cacheBustedURL = `${finalPhotoURL}?v=${Date.now()}`;
-      
-      await updateUser({ 
-        displayName: formData.name, 
-        photoURL: cacheBustedURL 
-      });
-
-    
-      const profileRes = await axios.get(`${BASE_URL}/users/profile/${user.email}`, {
-        headers: { Authorization: `Bearer ${user.token}` },
-      });
-      
-      setProfileData(profileRes.data);
-      setFormData({
-        name: profileRes.data.name,
-        photoURL: profileRes.data.photoURL,
-      });
-      setPreviewURL(cacheBustedURL);
-      setSelectedFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = "";
-
-      toast.success("Profile and Photo updated successfully!");
-    }
-  } catch (err) {
-    console.error("Update fail detail:", err.response?.data || err.message);
-    toast.error("Update failed. Please check backend console.");
-  } finally {
-    setUpdating(false);
-  }
-};
-
+  };
 
   if (loading || !profileData) {
     return (

@@ -14,10 +14,9 @@ const AddLesson = () => {
     emotionalTone: "",
     visibility: "public",
     accessLevel: "free",
+    imageURL: "", 
   });
 
-  const [imageFile, setImageFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // handle text input change
@@ -27,14 +26,6 @@ const AddLesson = () => {
       ...prev,
       [name]: value,
     }));
-  };
-
-  // handle image file selection
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    setImageFile(file);
-    setImagePreview(URL.createObjectURL(file)); // preview UI
   };
 
   const handleSubmit = async (e) => {
@@ -48,38 +39,23 @@ const AddLesson = () => {
     try {
       setLoading(true);
 
-      // prepare FormData for file upload
-      const payload = new FormData();
-      payload.append("title", formData.title);
-      payload.append("shortDescription", formData.shortDescription);
-      payload.append("fullDescription", formData.fullDescription);
-      payload.append("category", formData.category);
-      payload.append("emotionalTone", formData.emotionalTone);
-      payload.append("visibility", formData.visibility);
-      payload.append("accessLevel", formData.accessLevel);
-      payload.append("creatorName", user.name);
-      payload.append("creatorEmail", user.email);
-      payload.append("creatorPhoto", user.photoURL);
-      payload.append("likesCount", 0);
-      payload.append("favoritesCount", 0);
-      payload.append("createdAt", new Date().toISOString());
-
-      if (imageFile) payload.append("image", imageFile);
+      
+      const payload = {
+        ...formData, 
+      };
 
       await axios.post(
-        "http://localhost:3000/dashboard/add-lesson",
-        payload,
+        "https://wisdomvaultserver.vercel.app/dashboard/add-lesson",
+        payload, 
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
-            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${user?.token}`, 
+            "Content-Type": "application/json", 
           },
         }
       );
 
       toast.success("Lesson created successfully!");
-
-      // reset form
       setFormData({
         title: "",
         shortDescription: "",
@@ -88,11 +64,10 @@ const AddLesson = () => {
         emotionalTone: "",
         visibility: "public",
         accessLevel: "free",
+        imageURL: "",
       });
-      setImageFile(null);
-      setImagePreview(null);
     } catch (error) {
-      console.error(error);
+      console.error("Frontend Error:", error.response?.data || error.message);
       toast.error("Failed to create lesson");
     } finally {
       setLoading(false);
@@ -106,7 +81,6 @@ const AddLesson = () => {
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* TITLE */}
         <InputField
           label="Lesson Title"
           name="title"
@@ -115,7 +89,6 @@ const AddLesson = () => {
           placeholder="Enter lesson title"
         />
 
-        {/* SHORT DESCRIPTION */}
         <TextareaField
           label="Short Description (Summary)"
           name="shortDescription"
@@ -124,7 +97,6 @@ const AddLesson = () => {
           placeholder="Enter a brief summary..."
         />
 
-        {/* FULL DESCRIPTION */}
         <TextareaField
           label="Full Description / Story / Insight"
           name="fullDescription"
@@ -133,23 +105,21 @@ const AddLesson = () => {
           placeholder="Write your lesson..."
         />
 
-        {/* CATEGORY */}
         <SelectField
-  label="Category"
-  name="category"
-  value={formData.category}
-  onChange={handleChange}
-  options={[
-    "Life Advice",
-    "Personal Growth",
-    "Motivation",
-    "Life Skills",
-    "Daily Wisdom",
-    "Psychology",
-  ]}
-/>
+          label="Category"
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          options={[
+            "Life Advice",
+            "Personal Growth",
+            "Motivation",
+            "Life Skills",
+            "Daily Wisdom",
+            "Psychology",
+          ]}
+        />
 
-        {/* EMOTIONAL TONE */}
         <SelectField
           label="Emotional Tone"
           name="emotionalTone"
@@ -158,27 +128,22 @@ const AddLesson = () => {
           options={["Motivational", "Sad", "Realization", "Gratitude"]}
         />
 
-        {/* IMAGE UPLOAD */}
-        <div>
-          <label className="block mb-1 text-gray-900 dark:text-gray-100">
-            Upload Image
-          </label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            className="w-full"
+        {/* IMAGE URL INPUT */}
+        <InputField
+          label="Image URL"
+          name="imageURL"
+          value={formData.imageURL}
+          onChange={handleChange}
+          placeholder="Paste image URL here"
+        />
+        {formData.imageURL && (
+          <img
+            src={formData.imageURL}
+            alt="preview"
+            className="mt-2 w-48 h-48 object-cover rounded"
           />
-          {imagePreview && (
-            <img
-              src={imagePreview}
-              alt="preview"
-              className="mt-2 w-48 h-48 object-cover rounded"
-            />
-          )}
-        </div>
+        )}
 
-        {/* PRIVACY */}
         <SelectField
           label="Privacy"
           name="visibility"
@@ -187,7 +152,6 @@ const AddLesson = () => {
           options={["public", "private"]}
         />
 
-        {/* ACCESS LEVEL */}
         <SelectField
           label="Access Level"
           name="accessLevel"
@@ -203,7 +167,6 @@ const AddLesson = () => {
           </p>
         )}
 
-        {/* SUBMIT */}
         <button
           type="submit"
           disabled={loading}

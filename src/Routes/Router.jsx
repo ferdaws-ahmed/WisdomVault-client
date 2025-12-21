@@ -25,6 +25,7 @@ import Pricing from "../Pages/Upgrade";
 
 
 
+
 const router = createBrowserRouter([
     {
         path:"/",
@@ -57,8 +58,10 @@ const router = createBrowserRouter([
             },
             {
                 path:'/upgrade',
-                element: <Pricing></Pricing>
-            }
+                element: <Pricing></Pricing>,
+                
+            },
+           
             
         ]
     },

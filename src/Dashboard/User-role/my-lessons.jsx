@@ -14,7 +14,7 @@ const MyLessons = () => {
     const fetchLessons = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:3000/dashboard/my-lessons", {
+        const res = await axios.get("https://wisdomvaultserver.vercel.app/dashboard/my-lessons", {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setLessons(res.data);
@@ -32,7 +32,7 @@ const MyLessons = () => {
   const handleDelete = async (lessonId) => {
     if (!confirm("Are you sure you want to delete this lesson?")) return;
     try {
-      await axios.delete(`http://localhost:3000/dashboard/my-lessons/${lessonId}`, {
+      await axios.delete(`https://wisdomvaultserver.vercel.app/dashboard/my-lessons/${lessonId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setLessons(lessons.filter((l) => l._id !== lessonId));
@@ -47,7 +47,7 @@ const MyLessons = () => {
   const handleUpdate = async (updatedLesson) => {
     try {
       await axios.put(
-        `http://localhost:3000/dashboard/my-lessons/${updatedLesson._id}`,
+        `https://wisdomvaultserver.vercel.app/dashboard/my-lessons/${updatedLesson._id}`,
         updatedLesson,
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
