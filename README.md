@@ -2,9 +2,9 @@
 
 **WisdomVault** is a full-stack digital life lessons platform where users can create, store, and share meaningful life lessons, personal growth insights, and wisdom gathered from real-life experiences. The platform encourages mindful reflection and community learning through structured lesson management and premium content access.
 
-🌐 **Live Website:** https://your-live-site-url.com  
-📦 **Client Repository:** https://github.com/your-username/wisdomvault-client  
-🖥 **Server Repository:** https://github.com/your-username/wisdomvault-server  
+🌐 **Live Website:** https://wisdom-vault-client-side.vercel.app/  
+📦 **Client Repository:** https://github.com/ferdaws-ahmed/WisdomVault-client  
+🖥 **Server Repository:** https://github.com/ferdaws-ahmed/WisdomVault-server-side  
 
 ---
 
