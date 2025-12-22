@@ -23,6 +23,7 @@ import Pricing from "../Pages/Upgrade";
 
 import PrivateRoute from "../Routes/PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndCondition";
+import PrivacyPolicy from "../Pages/Privacy";
 
 
 
@@ -66,6 +67,15 @@ const router = createBrowserRouter([
             
         ]
     },
+    {
+        path:'/terms-condition',
+        element:<TermsAndConditions></TermsAndConditions>
+    },
+    {
+        path:'/privacy',
+        element:<PrivacyPolicy></PrivacyPolicy>
+    },
+
 
 
 
@@ -104,11 +114,7 @@ const router = createBrowserRouter([
                     }
                 ]
     },
-    {
-        path:'/terms-condition',
-        element:<TermsAndConditions></TermsAndConditions>
-    }
-
+    
 
     {
         path: '*',
