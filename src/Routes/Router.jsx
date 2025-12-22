@@ -22,6 +22,7 @@ import ManageLessons from "../Dashboard/Admin-role/ManageLesson";
 import Pricing from "../Pages/Upgrade";
 
 import PrivateRoute from "../Routes/PrivateRoute";
+import TermsAndConditions from "../Pages/TermsAndCondition";
 
 
 
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
                     }
                 ]
     },
+    {
+        path:'/terms-condition',
+        element:<TermsAndConditions></TermsAndConditions>
+    }
 
 
     {

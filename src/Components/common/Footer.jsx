@@ -85,7 +85,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li>
               <NavLink
-                to="/terms"
+                to="/terms-condition"
                 className={`hover:underline ${
                   isLight ? "text-gray-600" : "text-gray-400"
                 }`}
@@ -121,7 +121,7 @@ export default function Footer() {
   <motion.a
     whileHover={{ y: -4, scale: 1.1 }}
     transition={{ type: "spring", stiffness: 300 }}
-    href="mailto:contact@wisdomvault.com" // Email
+    href="mailto:contact@wisdomvault.com" 
     target="_blank"
     rel="noopener noreferrer"
     className={`p-2 rounded-full border ${
