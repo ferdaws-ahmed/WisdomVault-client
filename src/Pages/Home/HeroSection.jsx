@@ -22,6 +22,7 @@ import personalGrowthLightImg from '../../assets/hero-assets/personal-growth-lig
 import lifeSkillsLightImg from '../../assets/hero-assets/life-skills-light.png';
 import dailyWisdomLightImg from '../../assets/hero-assets/daily-wisdom-light.png';
 import psychologyLightImg from '../../assets/hero-assets/psychology-light.png';
+import { Link } from "react-router";
 
 
 const slides = [
@@ -29,48 +30,48 @@ const slides = [
     title: "Life Advice",
     subtitle: "Navigate the complexities of life with timeless wisdom. Get simple, actionable insights to improve your daily decisions.",
     color: "text-blue-400",
-    image: lifeAdviceImg, // Dark Mode Default
-    lightImage: lifeAdviceLightImg, // Light Mode Version
+    image: lifeAdviceImg,
+    lightImage: lifeAdviceLightImg,
     buttonText: "Explore Life Advice",
   },
   {
     title: "Personal Growth",
     subtitle: "Unlock your full potential and evolve into the best version of yourself through consistent improvement.",
     color: "text-green-400",
-    image: personalGrowthImg, // Dark Mode Default
-    lightImage: personalGrowthLightImg, // Light Mode Version
+    image: personalGrowthImg, 
+    lightImage: personalGrowthLightImg, 
     buttonText: "Start Growing",
   },
   {
     title: "Motivation",
     subtitle: "Stay inspired and keep moving forward with powerful stories, ideas, and mindset techniques.",
     color: "text-red-400",
-    image: motivationImg, // Dark Mode Default
-    lightImage: motivationLightImg, // Light Mode Version
+    image: motivationImg, 
+    lightImage: motivationLightImg,
     buttonText: "Get Inspired",
   },
   {
     title: "Life Skills",
     subtitle: "Learn essential skills to thrive in modern life—from communication to critical thinking.",
     color: "text-purple-400",
-    image: lifeSkillsImg, // Dark Mode Default
-    lightImage: lifeSkillsLightImg, // Light Mode Version
+    image: lifeSkillsImg, 
+    lightImage: lifeSkillsLightImg, 
     buttonText: "Master New Skills",
   },
   {
     title: "Daily Wisdom",
     subtitle: "Gain fresh insights each day that guide your thoughts, decisions, and personal growth.",
     color: "text-yellow-400",
-    image: dailyWisdomImg, // Dark Mode Default
-    lightImage: dailyWisdomLightImg, // Light Mode Version
+    image: dailyWisdomImg,
+    lightImage: dailyWisdomLightImg, 
     buttonText: "Get Daily Wisdom",
   },
   {
     title: "Psychology",
     subtitle: "Understand the human mind and behavior to improve relationships and emotional intelligence.",
     color: "text-pink-400",
-    image: psychologyImg, // Dark Mode Default
-    lightImage: psychologyLightImg, // Light Mode Version
+    image: psychologyImg, 
+    lightImage: psychologyLightImg, 
     buttonText: "Understand Psychology",
   },
 ];
@@ -176,9 +177,11 @@ export default function HeroSlider() {
               className="mt-8"
             >
               <motion.div variants={breathingVariants} whileHover="hover">
-                <Button className="px-8 py-3 text-lg rounded-full bg-white/20 backdrop-blur text-white hover:bg-white/30 transition">
+               <Link to={'/lessons'}>
+                       <Button className="px-8 py-3 text-lg rounded-full bg-white/20 backdrop-blur text-white hover:bg-white/30 transition">
                   {currentSlide.buttonText}
                 </Button>
+               </Link>
               </motion.div>
             </motion.div>
           </motion.div>

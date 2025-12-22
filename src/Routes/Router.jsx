@@ -21,7 +21,7 @@ import ManageUsers from "../Dashboard/Admin-role/ManagesUser";
 import ManageLessons from "../Dashboard/Admin-role/ManageLesson";
 import Pricing from "../Pages/Upgrade";
 
-
+import PrivateRoute from "../Routes/PrivateRoute";
 
 
 
@@ -54,11 +54,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'/lesson-details/:lessonId',
-                element:<LessonDetails></LessonDetails>
+                element:<PrivateRoute><LessonDetails></LessonDetails></PrivateRoute>
             },
             {
                 path:'/upgrade',
-                element: <Pricing></Pricing>,
+                element: <PrivateRoute><Pricing></Pricing></PrivateRoute>,
                 
             },
            
@@ -71,35 +71,35 @@ const router = createBrowserRouter([
 
     {
                 path:'/dashboard',
-                element: <DashboardLayout></DashboardLayout>,
+                element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
                 children: [
                     {
                         index: true,
-                        element: <UserOverview></UserOverview>
+                        element:<PrivateRoute> <UserOverview></UserOverview></PrivateRoute>
                     },
                     {
                         path:'add-lesson/user',
-                        element:<AddLesson></AddLesson>
+                        element:<PrivateRoute><AddLesson></AddLesson></PrivateRoute>
                     },
                     {
                         path:'my-lessons/user',
-                        element:<MyLessons></MyLessons>
+                        element:<PrivateRoute><MyLessons></MyLessons></PrivateRoute>
                     },
                     {
                         path:'profile/user',
-                        element: <Profile></Profile>
+                        element: <PrivateRoute><Profile></Profile></PrivateRoute>
                     },
                     {
                         path:'admin',
-                        element:<AdminDashboard></AdminDashboard>
+                        element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>
                     },
                     {
                         path:'admin/manage-users',
-                        element:<ManageUsers></ManageUsers>
+                        element:<PrivateRoute><ManageUsers></ManageUsers></PrivateRoute>
                     },
                     {
                         path:'admin/manage-lesson',
-                        element:<ManageLessons></ManageLessons>
+                        element:<PrivateRoute><ManageLessons></ManageLessons></PrivateRoute>
                     }
                 ]
     },

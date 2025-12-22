@@ -3,8 +3,10 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { X, CreditCard } from 'lucide-react';
+import { useAuth } from '../Context/AuthContext'; 
 
-const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
+const PaymentModal = ({ isOpen, onClose, plan, price }) => {
+  const { user } = useAuth(); 
   const stripe = useStripe();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
@@ -13,13 +15,9 @@ const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
   
   useEffect(() => {
     if (isOpen && price > 0) {
-      
-      const baseUrl = import.meta.env.VITE_API_URL;
-      
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       axios.post(`${baseUrl}/create-payment-intent`, { price })
-        .then(res => {
-          setClientSecret(res.data.clientSecret);
-        })
+        .then(res => setClientSecret(res.data.clientSecret))
         .catch(err => {
           console.error("Stripe Intent Error:", err);
           toast.error("Failed to initialize payment system.");
@@ -30,70 +28,65 @@ const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!stripe || !elements || !clientSecret) {
+    if (!stripe || !elements || !clientSecret) return;
+
+    
+    if (!user || !user.email) {
+      toast.error("User not found. Please login again.");
       return;
     }
-
-    const card = elements.getElement(CardElement);
-    if (card === null) return;
 
     setProcessing(true);
 
     
     const { paymentIntent, error: stripeError } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
-        card: card,
+        card: elements.getElement(CardElement),
         billing_details: {
-          name: user?.name || user?.displayName || "Anonymous",
-          email: user?.email || "unknown@mail.com",
+          name: user?.name || "Anonymous",
+          email: user?.email,
         },
       },
     });
 
     if (stripeError) {
-      console.log("[Stripe Error Details]:", stripeError);
       toast.error(stripeError.message);
       setProcessing(false);
-      return; 
+      return;
     }
 
+   
     if (paymentIntent.status === "succeeded") {
-      
-      const updatePayload = {};
-      if (plan === 'premium') {
-        updatePayload.isPremium = true;
-        updatePayload.role = 'premium'; 
-      } else if (plan === 'admin') {
-        updatePayload.role = 'admin';
-      }
-
       try {
-       
         const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+        
         const response = await axios.patch(
-          `${baseUrl}/users/upgrade/${user?.email}`, 
-          updatePayload
+          `${baseUrl}/users/upgrade/${encodeURIComponent(user.email)}`, 
+          { 
+            isPremium: true, 
+            role: plan === 'admin' ? 'admin' : 'premium' 
+          }, 
+          {
+            headers: {
+              
+              Authorization: `Bearer ${user.token}` 
+            }
+          }
         );
 
-       
-        if (response.data.modifiedCount > 0 || response.data.matchedCount > 0) {
+        if (response.data.success) {
           toast.success(`Success! Transaction ID: ${paymentIntent.id}`);
-          toast.success(plan === 'premium' ? "Welcome to Premium!" : "You are now an Admin!");
+          toast.success(`Welcome to ${plan}!`);
+          onClose();
           
-          setProcessing(false);
-          onClose(); 
-
-          
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+          setTimeout(() => window.location.reload(), 2000);
         } else {
           toast.error("Database update failed. Please contact support.");
-          setProcessing(false);
         }
       } catch (dbError) {
-        console.error("Database Update Error:", dbError);
-        toast.error("Internal Server Error during update.");
+        console.error("Database Update Error:", dbError.response?.data || dbError.message);
+        toast.error(dbError.response?.data?.message || "Internal Server Error during update.");
+      } finally {
         setProcessing(false);
       }
     }
@@ -111,10 +104,7 @@ const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
             <CreditCard className="text-blue-600" />
             <h3 className="text-xl font-bold dark:text-white">Secure Payment</h3>
           </div>
-          <button 
-            onClick={onClose} 
-            className="text-gray-400 hover:text-red-500 transition-colors"
-          >
+          <button onClick={onClose} className="text-gray-400 hover:text-red-500 transition-colors">
             <X size={24} />
           </button>
         </div>
@@ -131,11 +121,7 @@ const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
               <CardElement
                 options={{
                   style: {
-                    base: {
-                      fontSize: '16px',
-                      color: '#424770',
-                      '::placeholder': { color: '#aab7c4' },
-                    },
+                    base: { fontSize: '16px', color: '#424770', '::placeholder': { color: '#aab7c4' } },
                     invalid: { color: '#ef4444' },
                   },
                 }}
@@ -155,7 +141,7 @@ const PaymentModal = ({ isOpen, onClose, plan, price, user }) => {
               ) : `Pay ৳${price}`}
             </button>
           </form>
-          
+
           <p className="text-center text-xs text-gray-500 mt-4">
             Secured by Stripe. 100% Encrypted & Safe.
           </p>
