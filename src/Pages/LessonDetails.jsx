@@ -83,50 +83,89 @@ export default function LessonDetails() {
   const isLessonOwner = user?._id === lesson.creator._id; 
 
   // ================= HANDLERS =================
-  const handleLike = () => {
-    if (!user) {
-      toast.error("Please log in to like");
-      return;
-    }
-    const isLiking = !liked;
-    setLiked(isLiking);
-    setLikesCount((c) => (isLiking ? c + 1 : c - 1));
+const handleLike = async () => {
+  if (!user) return toast.error("Please log in to like");
+
+  try {
+    const res = await fetch(
+      `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/like`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: user.email }),
+      }
+    );
+
+    const data = await res.json();
+
+    setLiked(data.liked);
+    setLikesCount(data.likesCount);
+  } catch {
+    toast.error("Like failed");
+  }
+};
+
+
+
+
+
+
+  const handleSave = async () => {
+  if (!user) return toast.error("Please log in to save");
+
+  try {
+    const res = await fetch(
+      `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/favorite`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: user.email }),
+      }
+    );
+
+    const data = await res.json();
+    setSaved(data.saved);
+    setSavesCount((c) => (data.saved ? c + 1 : c - 1));
+  } catch {
+    toast.error("Failed to save lesson");
+  }
+};
+
+
+
+
+
+
+
+  const handleComment = async (e) => {
+  e.preventDefault();
+  if (!user || !commentInput.trim()) return;
+
+  const newComment = {
+    name: user.displayName || "User",
+    comment: commentInput,
+    date: new Date().toISOString().split("T")[0],
   };
 
-  const handleSave = () => {
-    if (!user) {
-      toast.error("Please log in to save");
-      return;
+  await fetch(
+    `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/comment`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newComment),
     }
-    const isSaving = !saved;
-    setSaved(isSaving);
-    setSavesCount((c) => (isSaving ? c + 1 : c - 1));
-    toast.success(isSaving ? "Saved to favorites" : "Removed from favorites");
-  };
+  );
 
-  const handleComment = (e) => {
-    e.preventDefault();
-    if (!user) {
-      toast.error("Please log in to comment");
-      return;
-    }
-    if (!commentInput.trim()) return;
+  setComments((p) => [...p, newComment]);
+  setCommentInput("");
+};
 
-    const today = new Date();
-    const formattedDate = today.getFullYear() + "-" +
-      String(today.getMonth() + 1).padStart(2, '0') + "-" +
-      String(today.getDate()).padStart(2, '0');
 
-    const newComment = {
-      name: user.name || "Demo User", 
-      comment: commentInput,
-      date: formattedDate 
-    };
 
-    setComments((p) => [...p, newComment]);
-    setCommentInput("");
-    toast.success("Comment added successfully!"); 
-  };
+
+
+
+
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -140,15 +179,21 @@ export default function LessonDetails() {
     }
   };
 
-  const submitReport = () => {
-    if (!reportReason) {
-      toast.error("Select a reason for the report.");
-      return;
-    }
-    setReportOpen(false);
-    toast.success("Report submitted successfully! We will review it shortly."); 
-    setReportReason("");
-  };
+
+
+
+
+
+const submitReport = async () => {
+  await fetch(
+    `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/report`,
+    { method: "POST" }
+  );
+
+  toast.success("Report submitted");
+  setReportOpen(false);
+};
+
 
   // ================= RENDER =================
   return (

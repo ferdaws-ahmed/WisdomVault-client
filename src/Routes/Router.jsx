@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router";
+import { Helmet } from "react-helmet"; // Helmet ইম্পোর্ট করা হয়েছে
 import MainLayout from "../Layouts/MainLayout";
-
-
 import Error from "../Pages/Error";
-
 import LoginPage from "../Pages/Login";
 import RegisterPage from "../Pages/Register";
 import ForgetPassword from "../Pages/ForgetPassword";
@@ -20,108 +18,155 @@ import AdminDashboard from "../Dashboard/Admin-role/AdminDashboardLayout";
 import ManageUsers from "../Dashboard/Admin-role/ManagesUser";
 import ManageLessons from "../Dashboard/Admin-role/ManageLesson";
 import Pricing from "../Pages/Upgrade";
-
 import PrivateRoute from "../Routes/PrivateRoute";
 import TermsAndConditions from "../Pages/TermsAndCondition";
 import PrivacyPolicy from "../Pages/Privacy";
 
-
-
-
+const PageTitle = ({ title, icon = "/favicon.ico" }) => {
+   
+    return (
+        <Helmet>
+            <title>{title} </title>
+            <link rel="icon" type="image/png" href={icon} />
+        </Helmet>
+    );
+};
 const router = createBrowserRouter([
     {
-        path:"/",
+        path: "/",
         element: <MainLayout></MainLayout>,
-        children : [
+        children: [
             {
-               index: true,
-                element: <Home></Home>
+                index: true,
+                element: (
+                    <>
+                        <PageTitle title="WisdomVault | Home" icon="/home-icon.png" />
+                        <Home />
+                    </>
+                )
             },
             {
-                path:'/login',
-                element: <LoginPage></LoginPage>
+                path: '/login',
+                element: (
+                    <>
+                        <PageTitle title="Login" icon="/login-icon.png" />
+                        <LoginPage />
+                    </>
+                )
             },
             {
-                path:'/register',
-                element:<RegisterPage></RegisterPage>
+                path: '/register',
+                element: (
+                    <>
+                        <PageTitle title="Register" />
+                        <RegisterPage />
+                    </>
+                )
             },
             {
-               path:'/forget-password',
-               element: <ForgetPassword></ForgetPassword>
-
+                path: '/forget-password',
+                element: (
+                    <>
+                        <PageTitle title="Reset Password" />
+                        <ForgetPassword />
+                    </>
+                )
             },
             {
-                path:'/lessons',
-                element:<PublicLessons></PublicLessons>
+                path: '/lessons',
+                element: (
+                    <>
+                        <PageTitle title="Lessons" icon="/lesson-icon.png" />
+                        <PublicLessons />
+                    </>
+                )
             },
             {
-                path:'/lesson-details/:lessonId',
-                element:<PrivateRoute><LessonDetails></LessonDetails></PrivateRoute>
+                path: '/lesson-details/:lessonId',
+                element: (
+                    <PrivateRoute>
+                        <PageTitle title="Lesson Details" />
+                        <LessonDetails />
+                    </PrivateRoute>
+                )
             },
             {
-                path:'/upgrade',
-                element: <PrivateRoute><Pricing></Pricing></PrivateRoute>,
-                
+                path: '/upgrade',
+                element: (
+                    <PrivateRoute>
+                        <PageTitle title="Upgrade / Pricing" icon="/pricing-icon.png" />
+                        <Pricing />
+                    </PrivateRoute>
+                ),
             },
-           
-            
         ]
     },
     {
-        path:'/terms-condition',
-        element:<TermsAndConditions></TermsAndConditions>
+        path: '/terms-condition',
+        element: (
+            <>
+                <PageTitle title="Terms & Conditions" />
+                <TermsAndConditions />
+            </>
+        )
     },
     {
-        path:'/privacy',
-        element:<PrivacyPolicy></PrivacyPolicy>
+        path: '/privacy',
+        element: (
+            <>
+                <PageTitle title="Privacy Policy" />
+                <PrivacyPolicy />
+            </>
+        )
     },
-
-
-
-
-
     {
-                path:'/dashboard',
-                element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-                children: [
-                    {
-                        index: true,
-                        element:<PrivateRoute> <UserOverview></UserOverview></PrivateRoute>
-                    },
-                    {
-                        path:'add-lesson/user',
-                        element:<PrivateRoute><AddLesson></AddLesson></PrivateRoute>
-                    },
-                    {
-                        path:'my-lessons/user',
-                        element:<PrivateRoute><MyLessons></MyLessons></PrivateRoute>
-                    },
-                    {
-                        path:'profile/user',
-                        element: <PrivateRoute><Profile></Profile></PrivateRoute>
-                    },
-                    {
-                        path:'admin',
-                        element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>
-                    },
-                    {
-                        path:'admin/manage-users',
-                        element:<PrivateRoute><ManageUsers></ManageUsers></PrivateRoute>
-                    },
-                    {
-                        path:'admin/manage-lesson',
-                        element:<PrivateRoute><ManageLessons></ManageLessons></PrivateRoute>
-                    }
-                ]
+        path: '/dashboard',
+        element: (
+            <PrivateRoute>
+                <PageTitle title="Dashboard" icon="/dashboard-icon.png" />
+                <DashboardLayout />
+            </PrivateRoute>
+        ),
+        children: [
+            {
+                index: true,
+                element: <PrivateRoute> <UserOverview /> </PrivateRoute>
+            },
+            {
+                path: 'add-lesson/user',
+                element: <PrivateRoute><AddLesson /></PrivateRoute>
+            },
+            {
+                path: 'my-lessons/user',
+                element: <PrivateRoute><MyLessons /></PrivateRoute>
+            },
+            {
+                path: 'profile/user',
+                element: <PrivateRoute> <PageTitle title="Profile" icon="/dashboard-icon.png" /><Profile /></PrivateRoute>
+            },
+            {
+                path: 'admin',
+                element: <PrivateRoute><AdminDashboard /></PrivateRoute>
+            },
+            {
+                path: 'admin/manage-users',
+                element: <PrivateRoute><ManageUsers /></PrivateRoute>
+            },
+            {
+                path: 'admin/manage-lesson',
+                element: <PrivateRoute><ManageLessons /></PrivateRoute>
+            }
+        ]
     },
-    
-
     {
         path: '*',
-        element: <ErrorPage></ErrorPage>
+        element: (
+            <>
+                <PageTitle title="404 - Not Found" />
+                <ErrorPage />
+            </>
+        )
     }
-    
-])
-
+]);
 
 export default router;

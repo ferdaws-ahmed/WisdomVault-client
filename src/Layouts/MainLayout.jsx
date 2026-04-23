@@ -6,13 +6,13 @@ import Navbar from '../Components/common/Navbar';
 const MainLayout = () => {
     return (
         <div className=' min-h-screen flex flex-col'>
-            <section className='w-full sm:w-10/12 mx-auto'>
+            <section className='w-full  mx-auto'>
                  <Navbar></Navbar>
             </section>
-            <main className='w-full sm:w-10/12 mx-auto flex-grow '>
+            <main className='w-full  mx-auto flex-grow '>
                <Outlet />
             </main>
-            <section className='w-full sm:w-10/12 mx-auto'>
+            <section className='w-full  mx-auto'>
                 <Footer></Footer>
             </section>
         </div>
