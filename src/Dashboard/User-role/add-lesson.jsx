@@ -45,7 +45,7 @@ const AddLesson = () => {
       };
 
       await axios.post(
-        "https://wisdomvaultserver.vercel.app/dashboard/add-lesson",
+        "https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app/dashboard/add-lesson",
         payload, 
         {
           headers: {

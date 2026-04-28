@@ -17,7 +17,7 @@ const Profile = () => {
   });
   const [previewURL, setPreviewURL] = useState("");
 
-  const BASE_URL = "https://wisdomvaultserver.vercel.app";
+  const BASE_URL = import.meta.env.VITE_API_URL || "https://wisdomvaultserver-xgzb2h8wo-alif-mahmuds-projects-07063357.vercel.app";
 
   /* ================= FETCH PROFILE + MY LESSONS ================= */
   useEffect(() => {

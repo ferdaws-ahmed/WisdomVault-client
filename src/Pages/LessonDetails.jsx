@@ -36,7 +36,8 @@ export default function LessonDetails() {
 
   // ================= FETCH LESSONS =================
   useEffect(() => {
-    fetch("https://wisdomvaultserver.vercel.app/lessons")
+    const API_URL = import.meta.env.VITE_API_URL || "https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app";
+    fetch(`${API_URL}/lessons`)
       .then((res) => res.json())
       .then((data) => {
         setAllLessons(data);
@@ -88,7 +89,7 @@ const handleLike = async () => {
 
   try {
     const res = await fetch(
-      `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/like`,
+      `https://wisdomvaultserver-mc4ge8ux5-alif-mahmuds-projects-07063357.vercel.app/lessons/${lesson._id}/like`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -115,7 +116,7 @@ const handleLike = async () => {
 
   try {
     const res = await fetch(
-      `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/favorite`,
+      `https://wisdomvaultserver-mc4ge8ux5-alif-mahmuds-projects-07063357.vercel.app/lessons/${lesson._id}/favorite`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -148,7 +149,7 @@ const handleLike = async () => {
   };
 
   await fetch(
-    `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/comment`,
+    `https://wisdomvaultserver-mc4ge8ux5-alif-mahmuds-projects-07063357.vercel.app/lessons/${lesson._id}/comment`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -186,7 +187,7 @@ const handleLike = async () => {
 
 const submitReport = async () => {
   await fetch(
-    `https://wisdomvaultserver.vercel.app/lessons/${lesson._id}/report`,
+    `https://wisdomvaultserver-mc4ge8ux5-alif-mahmuds-projects-07063357.vercel.app/lessons/${lesson._id}/report`,
     { method: "POST" }
   );
 

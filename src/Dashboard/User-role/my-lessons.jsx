@@ -14,8 +14,9 @@ const MyLessons = () => {
     const fetchLessons = async () => {
       try {
         setLoading(true);
+        const API_URL = import.meta.env.VITE_API_URL || "https://wisdomvaultserver-xgzb2h8wo-alif-mahmuds-projects-07063357.vercel.app";
         const res = await axios.get(
-          "https://wisdomvaultserver.vercel.app/dashboard/my-lessons",
+          `${API_URL}/dashboard/my-lessons`,
           { headers: { Authorization: `Bearer ${user.token}` } }
         );
         setLessons(res.data);
@@ -34,7 +35,7 @@ const MyLessons = () => {
     if (!confirm("Are you sure you want to delete this lesson?")) return;
     try {
       await axios.delete(
-        `https://wisdomvaultserver.vercel.app/dashboard/my-lessons/${lessonId}`,
+        `${API_URL}/dashboard/my-lessons/${lessonId}`,
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
       setLessons(lessons.filter((l) => l._id !== lessonId));
@@ -49,7 +50,7 @@ const MyLessons = () => {
   const handleUpdate = async (updatedLesson) => {
     try {
       await axios.put(
-        `https://wisdomvaultserver.vercel.app/dashboard/my-lessons/${updatedLesson._id}`,
+        `${API_URL}/dashboard/my-lessons/${updatedLesson._id}`,
         updatedLesson,
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

@@ -21,7 +21,8 @@ const UserOverview = () => {
     const fetchLessons = async () => {
       if (!user?.token) return;
       try {
-        const res = await axios.get("https://wisdomvaultserver.vercel.app/dashboard/my-lessons", {
+        const API_URL = import.meta.env.VITE_API_URL || "https://wisdomvaultserver-xgzb2h8wo-alif-mahmuds-projects-07063357.vercel.app";
+        const res = await axios.get(`${API_URL}/dashboard/my-lessons`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setLessons(res.data || []);

@@ -17,7 +17,7 @@ const ManageUsers = () => {
     try {
       setLoading(true);
       const res = await axios.get(
-        "https://wisdomvaultserver.vercel.app/admin/manage-users-test"
+        "https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app/admin/manage-users-test"
       );
       setUsers(res.data);
     } catch (error) {
@@ -35,7 +35,7 @@ const ManageUsers = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`https://wisdomvaultserver.vercel.app/admin/users/${email}`);
+      await axios.delete(`https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app/admin/users/${email}`);
       setUsers((prev) => prev.filter((u) => u.email !== email));
     } catch (error) {
       console.error("Delete failed", error);
@@ -52,7 +52,7 @@ const ManageUsers = () => {
       setUpdating(true);
 
       const res = await axios.patch(
-        `https://wisdomvaultserver.vercel.app/admin/users/role/${encodeURIComponent(
+        `https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app/admin/users/role/${encodeURIComponent(
           selectedUser.email
         )}`,
         { role: newRole }

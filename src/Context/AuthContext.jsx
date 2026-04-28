@@ -5,7 +5,7 @@ import { signOut, updateProfile } from "firebase/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"; 
 
 const api = axios.create({
-  baseURL: "https://wisdomvaultserver.vercel.app/",
+  baseURL: import.meta.env.VITE_API_URL || "https://wisdomvaultserver-mc4ge8ux5-alif-mahmuds-projects-07063357.vercel.app/",
 });
 
 const AuthContext = createContext();

@@ -116,11 +116,16 @@ export default function PublicLessons() {
   const [categoryFilter, setCategoryFilter] = useState("All");
 
   useEffect(() => {
-    fetch("https://wisdomvaultserver.vercel.app/lessons")
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${API_URL}/lessons`)
 
       .then(res => res.json())
       .then(data => {
         setLessons(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching lessons:", error);
         setLoading(false);
       });
   }, []);

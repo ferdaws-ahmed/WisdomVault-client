@@ -11,7 +11,8 @@ export default function CommunityImpactStats() {
   });
 
   useEffect(() => {
-    fetch("https://wisdomvaultserver.vercel.app/community-stats")
+    const API_URL = import.meta.env.VITE_API_URL || "https://wisdomvaultserver-3zd2sh84e-alif-mahmuds-projects-07063357.vercel.app";
+    fetch(`${API_URL}/community-stats`)
       .then(res => res.json())
       .then(data => {
         setStats({
